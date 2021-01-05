@@ -12,9 +12,21 @@ Button::Button(std::string path, int width, int height, olc::vf2d pos) :
 	this->image.get()->Load(path);
 }
 
-void Button::CheckState()
+void Button::Draw(float fElapsedTime)
 {
-	
+	/*calculate the drawing position*/
+	olc::vf2d drawing_pos = { (this->CenterPosition.x - this->Width / 2), (this->CenterPosition.y - this->Height / 2) };
+	/*Set the Sprite that will be drawn, depending on the Button State*/
+	olc::vf2d src_pos = { (float)this->Width * this->State, 0 };
+	if (src_pos.x > ((float)this->Width * 2)) {
+		src_pos.x = ((float)this->Width * 2);
+	}
+	/*Draw the Sprite*/
+	pge->DrawPartialDecal(drawing_pos, this->image.get()->Decal(), src_pos, olc::vf2d(this->Width, this->Height));
+}
+
+void Button::Update(float fElapsedTime)
+{
 	/*Change the Button State Depending on the Mouse Location*/
 	olc::vi2d mouse_pos = { pge->GetMouseX(), pge->GetMouseY() };
 	/*Check if the Mouse hovers over the Button*/
@@ -38,19 +50,6 @@ void Button::CheckState()
 	if (this->State != Button::ButtonState::BUTTON_IDLE && pge->GetMouse(0).bReleased) {
 		this->State = Button::ButtonState::BUTTON_RELEASED;
 	}
-}
-
-void Button::Draw(float fElapsedTime)
-{
-	/*calculate the drawing position*/
-	olc::vf2d drawing_pos = { (this->CenterPosition.x - this->Width / 2), (this->CenterPosition.y - this->Height / 2) };
-	/*Set the Sprite that will be drawn, depending on the Button State*/
-	olc::vf2d src_pos = { (float)this->Width * this->State, 0 };
-	if (src_pos.x > ((float)this->Width * 2)) {
-		src_pos.x = ((float)this->Width * 2);
-	}
-	/*Draw the Sprite*/
-	pge->DrawPartialDecal(drawing_pos, this->image.get()->Decal(), src_pos, olc::vf2d(this->Width, this->Height));
 }
 
 Button::ButtonState Button::GetState() const

@@ -27,8 +27,6 @@ AnimatedGameTile::AnimatedGameTile(std::string path, unsigned int noa, bool mova
 	}
 	this->image.get()->AddState("default", vec_positions);
 	this->image.get()->SetState("default");
-
-
 }
 
 void AnimatedGameTile::Draw(float fElapsedTime)
@@ -36,4 +34,8 @@ void AnimatedGameTile::Draw(float fElapsedTime)
 	/*Compute actual top left postion of the object*/
 	olc::vf2d draw_pos = { (this->CenterPosition.x * 24.0f) - 12.0f, (this->CenterPosition.y * 24.0f) - 12.0f };
 	this->image.get()->Draw(fElapsedTime, { draw_pos.x, draw_pos.y });
+}
+
+void AnimatedGameTile::Update(float fElapsedTime)
+{
 }

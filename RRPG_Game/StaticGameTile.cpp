@@ -15,3 +15,7 @@ void StaticGameTile::Draw(float FElapsedTime)
 	std::cout << "Drawing at " << draw_pos.x << " x " << draw_pos.y << std::endl;
 	pge->DrawDecal(draw_pos, this->image.get()->Decal());
 }
+
+void StaticGameTile::Update(float fElapsedTime)
+{
+}

@@ -15,6 +15,7 @@ public:
 		std::list<HitBox> CombHitBox = std::list<HitBox>()
 	);
 	virtual void Draw(float fElapsedTime) override;
+	virtual void Update(float fElapsedTime) override;
 protected:
 	std::unique_ptr<olc::AnimatedSprite> image;
 	std::unique_ptr<olc::Renderable> src;

@@ -16,12 +16,11 @@ TitleScreen::TitleScreen(std::string name) : State(name)
 State::StateChanger TitleScreen::Execute(float fElapsedTime)
 {
 	State::StateChanger returnState = State::StateChanger::NO_CHANGE;
-	/* Update Button Status*/
-	for (std::shared_ptr<Button> b : this->AllButtons) {
-		b->CheckState();
+	
+	for (std::shared_ptr<GameObject> b : this->AllObjects) {
+		b->Update(fElapsedTime);
 	}
-	/*Update Cursor Status*/
-	this->MainCursor->CheckState();
+	/*Update Behavior of all Objects*/
 
 	/* Check if "New Game" Button has been released*/
 	if (this->NewGameButton->GetState() == Button::ButtonState::BUTTON_RELEASED) {

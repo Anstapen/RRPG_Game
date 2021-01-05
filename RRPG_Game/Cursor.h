@@ -15,8 +15,8 @@ public:
 		int height,
 		olc::vf2d scaling = {1.0f, 1.0f}
 	);
-	virtual void CheckState();
 	virtual void Draw(float fElapsedTime) override;
+	virtual void Update(float fElapsedTime) override;
 protected:
 	bool Active;
 	CursorState State;

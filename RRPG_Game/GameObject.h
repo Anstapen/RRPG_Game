@@ -16,6 +16,7 @@ public:
     );
     /* This Method draws the Object on the Screen and has to be implemented by the child class*/
     virtual void Draw(float fElapsedTime) = 0;
+    virtual void Update(float fElapsedTime) = 0;
     olc::vf2d GetPosition();
 protected:
     /*The centered Position of the Object, 

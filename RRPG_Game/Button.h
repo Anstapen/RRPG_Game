@@ -22,8 +22,8 @@ public:
         int height,
         olc::vf2d pos = { 0.0f, 0.0f }
     );
-    virtual void CheckState();
     virtual void Draw(float fElapsedTime) override;
+    virtual void Update(float fElapsedTime) override;
     ButtonState GetState() const;
 
 protected:
