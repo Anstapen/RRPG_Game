@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Quelldateien">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Headerdateien">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Ressourcendateien">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Headerdateien\Objects">
+      <UniqueIdentifier>{b51e3445-f664-495d-9dd0-835159942f46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Objects">
+      <UniqueIdentifier>{68bc0716-18ea-4c36-8b65-c2d6c1e737b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Externals">
+      <UniqueIdentifier>{8a598814-1e21-4178-b8b0-da016d65d0a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\States">
+      <UniqueIdentifier>{cc4a5149-d0a2-409b-9a6e-12934624aa77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\States">
+      <UniqueIdentifier>{c774f983-3d5d-4d82-8d25-3519f0369e3a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Quelldateien\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="HitBox.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Quelldateien\States</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScreen.cpp">
+      <Filter>Quelldateien\States</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGame.cpp">
+      <Filter>Quelldateien\States</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTile.cpp">
+      <Filter>Quelldateien\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticGameTile.cpp">
+      <Filter>Quelldateien\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimatedGameTile.cpp">
+      <Filter>Quelldateien\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Quelldateien\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Cursor.cpp">
+      <Filter>Quelldateien\Objects</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Headerdateien\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="olcPGEX_AnimatedSprite.h">
+      <Filter>Headerdateien\Externals</Filter>
+    </ClInclude>
+    <ClInclude Include="olcPixelGameEngine.h">
+      <Filter>Headerdateien\Externals</Filter>
+    </ClInclude>
+    <ClInclude Include="HitBox.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>Headerdateien\States</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Headerdateien\States</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScreen.h">
+      <Filter>Headerdateien\States</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTile.h">
+      <Filter>Headerdateien\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticGameTile.h">
+      <Filter>Headerdateien\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatedGameTile.h">
+      <Filter>Headerdateien\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Headerdateien\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Cursor.h">
+      <Filter>Headerdateien\Objects</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
