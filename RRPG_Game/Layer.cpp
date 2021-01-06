@@ -1,11 +1,17 @@
 #include "Layer.h"
 
-Layer::Layer(int layerid, std::string pack, std::list<std::shared_ptr<GameObject>> objects) :
+Layer::Layer(int layerid, std::string pack, std::list<std::shared_ptr<GameObject>> objects, std::list<Event> events) :
 	ID(layerid),
 	Packing(pack),
 	AllObjects(objects),
+	IncomingEvents(events),
 	Enabled(false)
 {
+}
+
+StateChanger Layer::Update(float fElapsedTime)
+{
+	return StateChanger::NO_CHANGE;
 }
 
 void Layer::AddObject(std::shared_ptr<GameObject> obj)

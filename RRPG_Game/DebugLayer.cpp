@@ -14,8 +14,9 @@ void DebugLayer::Draw(float fElapsedTime)
 {
 }
 
-void DebugLayer::Update(float fElapsedTime)
+StateChanger DebugLayer::Update(float fElapsedTime)
 {
+	return StateChanger::NO_CHANGE;
 }
 
 std::shared_ptr<LayerPM> DebugLayer::GetLayerPM()
@@ -31,4 +32,8 @@ bool DebugLayer::OnEnable()
 bool DebugLayer::OnDisable()
 {
 	return false;
+}
+
+void DebugLayer::HandleEvents()
+{
 }

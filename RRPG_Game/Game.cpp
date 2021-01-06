@@ -29,7 +29,7 @@ bool Game::OnUserUpdate(float fElapsedTime)
 {
 	
 	/*Execute current State of the Game*/
-	State::StateChanger returnState = this->StateList[this->iCurrentState].get()->Execute(fElapsedTime);
+	StateChanger returnState = this->StateList[this->iCurrentState].get()->Execute(fElapsedTime);
 
 	/*Draw everything of the current State*/
 	this->DrawCurrentState(fElapsedTime);
@@ -38,7 +38,7 @@ bool Game::OnUserUpdate(float fElapsedTime)
 
 	/*determine which state gets executed in the next frame, depending on the return value.
 	  TODO: Find a better Way to do this, instead of using string compare...*/
-	if (returnState != State::StateChanger::NO_CHANGE) {
+	if (returnState != StateChanger::NO_CHANGE) {
 		/* newState contains the name*/
 		std::string newState = this->StateList[this->iCurrentState].get()->GetStateStringFromChanger(returnState);
 		unsigned int new_index = this->GetNextStateIndex(newState);

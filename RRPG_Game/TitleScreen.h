@@ -10,7 +10,7 @@ class TitleScreen :
 {
 public:
 	TitleScreen(std::string name);
-	virtual State::StateChanger Execute(float fElapsedTime) override;
+	virtual StateChanger Execute(float fElapsedTime) override;
 	virtual std::string GetStateStringFromChanger(StateChanger state) override;
 	virtual bool Setup() override;
 	virtual void DrawContent(float fElapsedTime) override;
@@ -19,4 +19,3 @@ public:
 protected:
 	std::list<std::shared_ptr<Layer>> Layers;
 };
-

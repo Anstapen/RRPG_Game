@@ -44,6 +44,10 @@ bool BGLayer::OnDisable()
 	return true;
 }
 
+void BGLayer::HandleEvents()
+{
+}
+
 void BGLayer::PaintBG(int width, int height, olc::Pixel colour)
 {
 	for (int x = 0; x < width; x++) {
@@ -53,8 +57,9 @@ void BGLayer::PaintBG(int width, int height, olc::Pixel colour)
 	}
 }
 
-void BGLayer::Update(float fElapsedTime)
+StateChanger BGLayer::Update(float fElapsedTime)
 {
+	return StateChanger::NO_CHANGE;
 }
 
 std::shared_ptr<LayerPM> BGLayer::GetLayerPM()

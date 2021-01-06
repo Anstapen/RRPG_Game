@@ -10,11 +10,12 @@ void GUILayer::Setup()
 {
 }
 
-void GUILayer::Update(float FElapsedTime)
+StateChanger GUILayer::Update(float FElapsedTime)
 {
 	for (auto o : this->AllObjects) {
 		o->Update(FElapsedTime);
 	}
+	return StateChanger::NO_CHANGE;
 }
 
 void GUILayer::Draw(float fElapsedTime)
@@ -37,4 +38,8 @@ bool GUILayer::OnEnable()
 bool GUILayer::OnDisable()
 {
 	return false;
+}
+
+void GUILayer::HandleEvents()
+{
 }

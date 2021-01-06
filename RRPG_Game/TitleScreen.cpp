@@ -16,26 +16,22 @@ TitleScreen::TitleScreen(std::string name) :
 {
 }
 
-State::StateChanger TitleScreen::Execute(float fElapsedTime)
+StateChanger TitleScreen::Execute(float fElapsedTime)
 {
-	State::StateChanger returnState = State::StateChanger::NO_CHANGE;
+	StateChanger returnState = StateChanger::NO_CHANGE;
 	
+	/*Update all the Layers using the Elapsed Time.
+	  The Layers are able to issue a State Change, in this Example with a click on the "New Run" Button*/
 	for (auto l : this->Layers) {
-		l->Update(fElapsedTime);
+		returnState = l->Update(fElapsedTime);
 	}
-	/*Update Behavior of all Objects*/
-
-	/* Check if "New Game" Button has been released*/
-	/*if (this->NewGameButton->GetState() == Button::ButtonState::BUTTON_RELEASED) {
-		returnState = State::StateChanger::BUTTON_NEW_GAME;
-	}*/
 	return returnState;
 }
 
 std::string TitleScreen::GetStateStringFromChanger(StateChanger state)
 {
 	switch (state) {
-	case State::StateChanger::BUTTON_NEW_GAME:
+	case StateChanger::BUTTON_NEW_GAME:
 		return "MainGame";
 		break;
 	default:
@@ -89,20 +85,8 @@ bool TitleScreen::Setup()
 void TitleScreen::DrawContent(float fElapsedTime)
 {
 	/*Clear Screen to Transparent*/
-	//pge->DrawDecal(olc::vf2d(0.0f, 0.0f), this->Transparent.get()->Decal());
-	//this->BackGround->Draw(fElapsedTime);
 	pge->Clear(olc::BLANK);
-
-	//pge->SetDrawTarget(test_layer);
-	//pge->Clear(olc::WHITE);
-	//pge->SetPixelMode(olc::Pixel::ALPHA);
-	//pge->DrawDecal({ 0,0 }, test->Decal());
-	//pge->SetPixelMode(olc::Pixel::NORMAL);
-	//pge->SetDrawTarget(nullptr);
 	
-	//std::cout << "size: " << this->AllObjects.size() << " \n";
-	/*Clear the Screen for now...*/
-	//this->pge->Clear(NULL);
 	/*Draw every object in the AllObjects list*/
 	for (auto l : this->Layers) {
 		l->Draw(fElapsedTime);

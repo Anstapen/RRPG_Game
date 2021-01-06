@@ -40,6 +40,12 @@
     <Filter Include="Quelldateien\PMs">
       <UniqueIdentifier>{9c6349a0-15db-4a39-b7a5-a5d8414b9786}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerdateien\Events">
+      <UniqueIdentifier>{b2fef2da-8ba9-4845-82c6-faebfa824019}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Events">
+      <UniqueIdentifier>{c992e6ce-5ce7-4977-b3ea-043548f0a182}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -104,6 +110,15 @@
     </ClCompile>
     <ClCompile Include="DebugLayerPM.cpp">
       <Filter>Quelldateien\PMs</Filter>
+    </ClCompile>
+    <ClCompile Include="Event.cpp">
+      <Filter>Quelldateien\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonEvent.cpp">
+      <Filter>Quelldateien\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="StateChanger.cpp">
+      <Filter>Quelldateien\States</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +187,15 @@
     </ClInclude>
     <ClInclude Include="DebugLayerPM.h">
       <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Headerdateien\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonEvent.h">
+      <Filter>Headerdateien\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="StateChanger.h">
+      <Filter>Headerdateien\States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

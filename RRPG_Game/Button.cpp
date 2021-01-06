@@ -47,6 +47,7 @@ void Button::Update(float fElapsedTime)
 	else {
 		this->State = Button::ButtonState::BUTTON_IDLE;
 	}
+	/*Check if the Button was Released*/
 	if (this->State != Button::ButtonState::BUTTON_IDLE && pge->GetMouse(0).bReleased) {
 		this->State = Button::ButtonState::BUTTON_RELEASED;
 	}

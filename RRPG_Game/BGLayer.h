@@ -20,11 +20,12 @@ public:
 	);
 	virtual void Setup() override;
 	virtual void Draw(float fElapsedTime) override;
-	virtual void Update(float fElapsedTime) override;
+	virtual StateChanger Update(float fElapsedTime) override;
 	virtual std::shared_ptr<LayerPM> GetLayerPM() override;
 protected:
 	virtual bool OnEnable() override;
 	virtual bool OnDisable() override;
+	virtual void HandleEvents() override;
 	std::unique_ptr<olc::Sprite> sprImage;
 	std::unique_ptr<olc::Decal> decImage;
 	olc::Pixel colour;
