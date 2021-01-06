@@ -2,6 +2,8 @@
 #include "olcPixelGameEngine.h"
 #include "AnimatedGameTile.h"
 #include "StaticGameTile.h"
+#include "BGLayer.h"
+#include "GUILayer.h"
 
 /*test*/
 
@@ -9,7 +11,8 @@
 #include <mmsystem.h>
 #pragma comment(lib, "winmm.lib")
 
-TitleScreen::TitleScreen(std::string name) : State(name)
+TitleScreen::TitleScreen(std::string name) : 
+	State(name)
 {
 }
 
@@ -17,15 +20,15 @@ State::StateChanger TitleScreen::Execute(float fElapsedTime)
 {
 	State::StateChanger returnState = State::StateChanger::NO_CHANGE;
 	
-	for (std::shared_ptr<GameObject> b : this->AllObjects) {
-		b->Update(fElapsedTime);
+	for (auto l : this->Layers) {
+		l->Update(fElapsedTime);
 	}
 	/*Update Behavior of all Objects*/
 
 	/* Check if "New Game" Button has been released*/
-	if (this->NewGameButton->GetState() == Button::ButtonState::BUTTON_RELEASED) {
+	/*if (this->NewGameButton->GetState() == Button::ButtonState::BUTTON_RELEASED) {
 		returnState = State::StateChanger::BUTTON_NEW_GAME;
-	}
+	}*/
 	return returnState;
 }
 
@@ -46,57 +49,66 @@ bool TitleScreen::Setup()
 {
 	std::cout << "Executing Setup Routine for TitleScreen...\n";
 	std::cout << "Adding Objects...\n";
+
+	/*temp int variable to store the layer IDs*/
+	int lay_id = 0;
 	
-	
-	/* Adding one Leaf per Tile*/
-	for (int x = 0; x < 20; x++) {
-		for (int y = 0; y < 12; y++) {
-			this->AllObjects.push_back(std::make_shared<AnimatedGameTile>("./gfx/Leaf.png", 4, false, olc::vf2d(x+0.5f, y+0.5f), false));
-		}
+	/*Adding the GUI Layer*/
+	lay_id = pge->CreateLayer();
+	/*Create GUI Layer instance and add it to the Layers list*/
+	std::shared_ptr<GUILayer> title_gui = std::make_shared<GUILayer>(lay_id);
+	this->Layers.push_back(title_gui);
+
+	/* Adding the Background Layer*/
+	lay_id = pge->CreateLayer();
+	std::shared_ptr<BGLayer> title_background = std::make_shared<BGLayer>(lay_id, pge->ScreenWidth(), pge->ScreenHeight(), "./gfx/titlescreen_bg.png");
+	this->Layers.push_back(title_background);
+
+	/*Temporary Packing Manager Pointer*/
+	std::shared_ptr<LayerPM> manager;
+
+	/*Add the Specified Objects to the Layers, based on their Packing value*/
+	for (auto l : this->Layers) {
+		/*Get the correct Packing Manager for the Layer*/
+		manager = l->GetLayerPM();
+		/*Use the Packing Manager to populater the Layer*/
+		manager->PackLayer(l);
+		/*After that, Enable the Layer*/
+		l->EnableLayer();
 	}
-
-	/*Add TitleScreen Buttons*/
-
-	/*Add the "New Game" Button*/
-	std::shared_ptr<Button> start_button = std::make_shared<Button>("./gfx/NewGame_Button-Sheet.png", 50, 20, olc::vf2d(pge->ScreenWidth() / 2, ((pge->ScreenHeight() * 2) / 3)));
-	//std::shared_ptr<Button> test_button = std::make_shared<Button>("./gfx/Test_Button.png", 50, 20, olc::vf2d(pge->ScreenWidth() / 2, ((pge->ScreenHeight() * 2) / 3)-70));
-	this->AllObjects.push_back(start_button);
-	//this->AllObjects.push_back(test_button);
-
-	this->AllButtons.push_back(start_button);
-	//this->AllButtons.push_back(test_button);
-
-	this->NewGameButton = start_button;
-
-
-	/*Adding the Main Cursor*/
-	std::shared_ptr<Cursor> main_cursor = std::make_shared<Cursor>("./gfx/Sword_Cursor-Sheet.png", 56, 56, olc::vf2d(0.25f, 0.25f));
-	this->AllObjects.push_back(main_cursor);
-	this->MainCursor = main_cursor;
-
-	std::cout << "Finished Adding Objects.\n";
-	std::cout << "Amount of Objects added: " << this->AllObjects.size() << " \n";
+	
 
 	/*Starting TitleScreen Music*/
 	std::cout << "Starting Title Music...\n";
 	PlaySound(TEXT("./music/TITLESCREEN.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+
+	
 	return true;
 }
 
 void TitleScreen::DrawContent(float fElapsedTime)
 {
+	/*Clear Screen to Transparent*/
+	//pge->DrawDecal(olc::vf2d(0.0f, 0.0f), this->Transparent.get()->Decal());
+	//this->BackGround->Draw(fElapsedTime);
+	pge->Clear(olc::BLANK);
+
+	//pge->SetDrawTarget(test_layer);
+	//pge->Clear(olc::WHITE);
+	//pge->SetPixelMode(olc::Pixel::ALPHA);
+	//pge->DrawDecal({ 0,0 }, test->Decal());
+	//pge->SetPixelMode(olc::Pixel::NORMAL);
+	//pge->SetDrawTarget(nullptr);
+	
 	//std::cout << "size: " << this->AllObjects.size() << " \n";
 	/*Clear the Screen for now...*/
-	this->pge->Clear(olc::WHITE);
+	//this->pge->Clear(NULL);
 	/*Draw every object in the AllObjects list*/
-	for (std::shared_ptr<GameObject> p : this->AllObjects) {
-		p->Draw(fElapsedTime);
+	for (auto l : this->Layers) {
+		l->Draw(fElapsedTime);
 	}
-	for (int x = 0; x < pge->ScreenWidth() / 24; x++) {
-		for (int y = 0; y < pge->ScreenHeight() / 24; y++) {
-			pge->DrawRect(x * 24, y * 24, 24, 24, olc::BLACK);
-		}
-		
-	}
+}
 
+void TitleScreen::ChangeState(int state_id)
+{
 }

@@ -38,3 +38,7 @@ void MainGame::DrawContent(float fElapsedTime)
 	/*Clear the Screen for now...*/
 	this->pge->Clear(olc::DARK_BLUE);
 }
+
+void MainGame::ChangeState(int state_id)
+{
+}

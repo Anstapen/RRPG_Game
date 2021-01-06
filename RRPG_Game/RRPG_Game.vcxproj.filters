@@ -28,6 +28,18 @@
     <Filter Include="Headerdateien\States">
       <UniqueIdentifier>{c774f983-3d5d-4d82-8d25-3519f0369e3a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerdateien\Layers">
+      <UniqueIdentifier>{cf8230b1-a3f6-462f-ae41-c166d1f52ad9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Layers">
+      <UniqueIdentifier>{8757e57e-a73b-45d5-8b20-ccc2be2f6d83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\PMs">
+      <UniqueIdentifier>{49aca983-bdb2-47d5-a2e9-f195e98e87d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\PMs">
+      <UniqueIdentifier>{9c6349a0-15db-4a39-b7a5-a5d8414b9786}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -65,6 +77,33 @@
     </ClCompile>
     <ClCompile Include="Cursor.cpp">
       <Filter>Quelldateien\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Layer.cpp">
+      <Filter>Quelldateien\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugLayer.cpp">
+      <Filter>Quelldateien\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="BGLayer.cpp">
+      <Filter>Quelldateien\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="GUILayer.cpp">
+      <Filter>Quelldateien\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="PackingManager.cpp">
+      <Filter>Quelldateien\PMs</Filter>
+    </ClCompile>
+    <ClCompile Include="GUILayerPM.cpp">
+      <Filter>Quelldateien\PMs</Filter>
+    </ClCompile>
+    <ClCompile Include="LayerPM.cpp">
+      <Filter>Quelldateien\PMs</Filter>
+    </ClCompile>
+    <ClCompile Include="BGLayerPM.cpp">
+      <Filter>Quelldateien\PMs</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugLayerPM.cpp">
+      <Filter>Quelldateien\PMs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +145,33 @@
     </ClInclude>
     <ClInclude Include="Cursor.h">
       <Filter>Headerdateien\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Layer.h">
+      <Filter>Headerdateien\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugLayer.h">
+      <Filter>Headerdateien\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="BGLayer.h">
+      <Filter>Headerdateien\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="GUILayer.h">
+      <Filter>Headerdateien\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="PackingManager.h">
+      <Filter>Headerdateien\PMs</Filter>
+    </ClInclude>
+    <ClInclude Include="GUILayerPM.h">
+      <Filter>Headerdateien\PMs</Filter>
+    </ClInclude>
+    <ClInclude Include="LayerPM.h">
+      <Filter>Headerdateien\PMs</Filter>
+    </ClInclude>
+    <ClInclude Include="BGLayerPM.h">
+      <Filter>Headerdateien\PMs</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugLayerPM.h">
+      <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

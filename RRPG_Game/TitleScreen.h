@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include "Button.h"
 #include "Cursor.h"
+#include "Layer.h"
 
 class TitleScreen :
 	public State
@@ -13,11 +14,9 @@ public:
 	virtual std::string GetStateStringFromChanger(StateChanger state) override;
 	virtual bool Setup() override;
 	virtual void DrawContent(float fElapsedTime) override;
+	virtual void ChangeState(int state_id) override;
 
-public:
-	std::list<std::shared_ptr<GameObject>> AllObjects;
-	std::list<std::shared_ptr<Button>> AllButtons;
-	std::shared_ptr<Cursor> MainCursor = nullptr;
-	std::shared_ptr<Button> NewGameButton;
+protected:
+	std::list<std::shared_ptr<Layer>> Layers;
 };
 

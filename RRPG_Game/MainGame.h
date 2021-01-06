@@ -9,5 +9,6 @@ public:
 	virtual std::string GetStateStringFromChanger(StateChanger state) override;
 	virtual bool Setup() override;
 	virtual void DrawContent(float fElapsedTime) override;
+	virtual void ChangeState(int state_id) override;
 };
 

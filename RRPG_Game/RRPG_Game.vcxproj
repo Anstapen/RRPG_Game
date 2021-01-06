@@ -139,29 +139,47 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AnimatedGameTile.cpp" />
+    <ClCompile Include="BGLayer.cpp" />
+    <ClCompile Include="BGLayerPM.cpp" />
+    <ClCompile Include="DebugLayerPM.cpp" />
+    <ClCompile Include="GUILayerPM.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Cursor.cpp" />
+    <ClCompile Include="DebugLayer.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameTile.cpp" />
+    <ClCompile Include="GUILayer.cpp" />
     <ClCompile Include="HitBox.cpp" />
+    <ClCompile Include="Layer.cpp" />
+    <ClCompile Include="LayerPM.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="PackingManager.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StaticGameTile.cpp" />
     <ClCompile Include="TitleScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimatedGameTile.h" />
+    <ClInclude Include="BGLayer.h" />
+    <ClInclude Include="BGLayerPM.h" />
+    <ClInclude Include="DebugLayerPM.h" />
+    <ClInclude Include="GUILayerPM.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Cursor.h" />
+    <ClInclude Include="DebugLayer.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameTile.h" />
+    <ClInclude Include="GUILayer.h" />
     <ClInclude Include="HitBox.h" />
+    <ClInclude Include="Layer.h" />
+    <ClInclude Include="LayerPM.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="olcPGEX_AnimatedSprite.h" />
     <ClInclude Include="olcPixelGameEngine.h" />
+    <ClInclude Include="PackingManager.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StaticGameTile.h" />
     <ClInclude Include="TitleScreen.h" />

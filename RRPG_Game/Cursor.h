@@ -26,4 +26,3 @@ protected:
 	olc::vf2d Scaling;
 	std::unique_ptr<olc::Renderable> image;
 };
-
