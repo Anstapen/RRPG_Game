@@ -1,13 +1,8 @@
 #pragma once
+#include "EventType.h"
 class Event
 {
 public:
-	enum class EventType {
-		DEFAULT = 1999,
-		BUTTON_NEWGAME = 2000,
-		BUTTON_EXIT
-	};
-
 	enum class EventPriority {
 		VERYLOW = -2,
 		LOW = -1,
@@ -15,9 +10,16 @@ public:
 		HIGH = 1,
 		VERYHIGH = 2
 	};
-
 public:
-	EventType type = EventType::DEFAULT;
-	EventPriority prio = EventPriority::NORMAL;
-};
+	EventType GetEventType() const;
+protected:
+	Event(
+		EventType in_type = EventType(EventType::otype::DEFAULT, EventType::etype::DEFAULT),
+		EventPriority in_prio = EventPriority::NORMAL
+	);
+	virtual ~Event();
 
+protected:
+	const EventType type;
+	EventPriority prio;
+};

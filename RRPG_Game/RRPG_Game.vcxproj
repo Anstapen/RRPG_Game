@@ -142,8 +142,11 @@
     <ClCompile Include="BGLayer.cpp" />
     <ClCompile Include="BGLayerPM.cpp" />
     <ClCompile Include="ButtonEvent.cpp" />
+    <ClCompile Include="ButtonType.cpp" />
     <ClCompile Include="DebugLayerPM.cpp" />
+    <ClCompile Include="DebugState.cpp" />
     <ClCompile Include="Event.cpp" />
+    <ClCompile Include="EventType.cpp" />
     <ClCompile Include="GUILayerPM.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Cursor.cpp" />
@@ -168,8 +171,11 @@
     <ClInclude Include="BGLayer.h" />
     <ClInclude Include="BGLayerPM.h" />
     <ClInclude Include="ButtonEvent.h" />
+    <ClInclude Include="ButtonType.h" />
     <ClInclude Include="DebugLayerPM.h" />
+    <ClInclude Include="DebugState.h" />
     <ClInclude Include="Event.h" />
+    <ClInclude Include="EventType.h" />
     <ClInclude Include="GUILayerPM.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Cursor.h" />

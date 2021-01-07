@@ -7,13 +7,14 @@ BGLayer::BGLayer(int layerid, int width, int height, std::string path, olc::Pixe
 	colour(in_colour)
 {
 	/*Depending on the path argument, either load the PNG or use an artifical Colour*/
-	if (path.empty()) {
+	std::string tmp_path(path);
+	if (tmp_path.empty()) {
 		/*Use the colour for the background*/
 		PaintBG(width, height, colour);
 	}
 	else {
 		/*Try to load the PNG File*/
-		olc::rcode return_code = this->sprImage.get()->LoadFromFile(path);
+		olc::rcode return_code = this->sprImage.get()->LoadFromFile(tmp_path);
 		if (return_code != olc::OK) {
 			/*File Load failed...use the coulour background*/
 			PaintBG(width, height, colour);
@@ -44,8 +45,9 @@ bool BGLayer::OnDisable()
 	return true;
 }
 
-void BGLayer::HandleEvents()
+StateChanger BGLayer::HandleEvents()
 {
+	return StateChanger::NO_CHANGE;
 }
 
 void BGLayer::PaintBG(int width, int height, olc::Pixel colour)
@@ -57,7 +59,7 @@ void BGLayer::PaintBG(int width, int height, olc::Pixel colour)
 	}
 }
 
-StateChanger BGLayer::Update(float fElapsedTime)
+StateChanger BGLayer::Update(float fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>> eventlist)
 {
 	return StateChanger::NO_CHANGE;
 }

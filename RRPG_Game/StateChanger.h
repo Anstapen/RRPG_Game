@@ -2,7 +2,8 @@
 
 enum class StateChanger {
 	NO_CHANGE = 0,
-	KEY_ESCAPE = 1,
-	KEY_ENTER = 2,
-	BUTTON_NEW_GAME = 1000
+	NEW_GAME = 1000,
+	DEBUG = 1001,
+	MAIN_GAME = 1002,
+	TITLESCREEN = 1003
 };

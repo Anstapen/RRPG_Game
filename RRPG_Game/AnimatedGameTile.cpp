@@ -36,6 +36,7 @@ void AnimatedGameTile::Draw(float fElapsedTime)
 	this->image.get()->Draw(fElapsedTime, { draw_pos.x, draw_pos.y });
 }
 
-void AnimatedGameTile::Update(float fElapsedTime)
+std::shared_ptr<Event> AnimatedGameTile::Update(float fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>> eventlist)
 {
+	return nullptr;
 }

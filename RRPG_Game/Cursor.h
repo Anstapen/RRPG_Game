@@ -16,7 +16,7 @@ public:
 		olc::vf2d scaling = {1.0f, 1.0f}
 	);
 	virtual void Draw(float fElapsedTime) override;
-	virtual void Update(float fElapsedTime) override;
+	virtual std::shared_ptr<Event> Update(float fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>> eventlist) override;
 protected:
 	bool Active;
 	CursorState State;

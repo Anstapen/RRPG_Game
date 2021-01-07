@@ -18,10 +18,10 @@ void Cursor::Draw(float fElapsedTime)
 {
 	olc::vf2d src_index = { (float)Width * this->State, 0.0f };
 	/*Draw the Sprite/Decal depending on the Cursor State*/
-	pge->DrawPartialDecal(this->CursorPosition, this->image.get()->Decal(), src_index, olc::vf2d(Width, Height), this->Scaling);
+	pge->DrawPartialDecal(this->CursorPosition, this->image.get()->Decal(), src_index, olc::vf2d((float)Width, (float)Height), this->Scaling);
 }
 
-void Cursor::Update(float fElapsedTime)
+std::shared_ptr<Event> Cursor::Update(float fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>> eventlist)
 {
 	/*Check if any of the three Mouse Buttons is pressed*/
 	if (pge->GetMouse(0).bHeld || pge->GetMouse(1).bHeld || pge->GetMouse(2).bHeld) {
@@ -34,5 +34,6 @@ void Cursor::Update(float fElapsedTime)
 	this->CursorPosition = { pge->GetMouseX(), pge->GetMouseY() };
 	/*Update Center of the Cursor Sprite (not used at all atm)*/
 	this->CenterPosition = { this->CursorPosition.x + (Width * Scaling.x / 2), this->CursorPosition.y + (Height * Scaling.y / 2) };
+	return nullptr;
 }
 

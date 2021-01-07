@@ -1,15 +1,10 @@
 #pragma once
 #include "State.h"
-#include "GameObject.h"
-#include "Button.h"
-#include "Cursor.h"
-#include "Layer.h"
-
-class TitleScreen :
+class DebugState :
 	public State
 {
 public:
-	TitleScreen(std::string name);
+	DebugState(std::string name);
 	virtual StateChanger Execute(float fElapsedTime) override;
 	virtual std::string GetStateStringFromChanger(StateChanger state) override;
 	virtual bool Setup() override;
@@ -17,7 +12,4 @@ public:
 	virtual void ChangeState(int state_id) override;
 	virtual void OnEnable() override;
 	virtual void OnDisable() override;
-
-protected:
-	std::list<std::shared_ptr<Layer>> Layers;
 };

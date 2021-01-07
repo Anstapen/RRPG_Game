@@ -120,6 +120,15 @@
     <ClCompile Include="StateChanger.cpp">
       <Filter>Quelldateien\States</Filter>
     </ClCompile>
+    <ClCompile Include="ButtonType.cpp">
+      <Filter>Quelldateien\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugState.cpp">
+      <Filter>Quelldateien\States</Filter>
+    </ClCompile>
+    <ClCompile Include="EventType.cpp">
+      <Filter>Quelldateien\Events</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -185,9 +194,6 @@
     <ClInclude Include="BGLayerPM.h">
       <Filter>Headerdateien\PMs</Filter>
     </ClInclude>
-    <ClInclude Include="DebugLayerPM.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="Event.h">
       <Filter>Headerdateien\Events</Filter>
     </ClInclude>
@@ -196,6 +202,18 @@
     </ClInclude>
     <ClInclude Include="StateChanger.h">
       <Filter>Headerdateien\States</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonType.h">
+      <Filter>Headerdateien\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugLayerPM.h">
+      <Filter>Headerdateien\PMs</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugState.h">
+      <Filter>Headerdateien\States</Filter>
+    </ClInclude>
+    <ClInclude Include="EventType.h">
+      <Filter>Headerdateien\Events</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

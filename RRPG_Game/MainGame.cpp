@@ -9,9 +9,9 @@ StateChanger MainGame::Execute(float fElaspedTime)
 	StateChanger returnState = StateChanger::NO_CHANGE;
 
 
-	/* Check if the ENTER Key is released*/
+	/* Check if the ESC Key is released*/
 	if (pge->GetKey(olc::Key::ESCAPE).bReleased) {
-		returnState = StateChanger::KEY_ESCAPE;
+		returnState = StateChanger::TITLESCREEN;
 	}
 	return returnState;
 }
@@ -19,7 +19,7 @@ StateChanger MainGame::Execute(float fElaspedTime)
 std::string MainGame::GetStateStringFromChanger(StateChanger state)
 {
 	switch (state) {
-	case  StateChanger::KEY_ESCAPE:
+	case  StateChanger::TITLESCREEN:
 		return "TitleScreen";
 		break;
 	default:
@@ -40,5 +40,13 @@ void MainGame::DrawContent(float fElapsedTime)
 }
 
 void MainGame::ChangeState(int state_id)
+{
+}
+
+void MainGame::OnEnable()
+{
+}
+
+void MainGame::OnDisable()
 {
 }

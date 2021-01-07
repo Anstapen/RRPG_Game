@@ -16,6 +16,7 @@ void StaticGameTile::Draw(float FElapsedTime)
 	pge->DrawDecal(draw_pos, this->image.get()->Decal());
 }
 
-void StaticGameTile::Update(float fElapsedTime)
+std::shared_ptr<Event> StaticGameTile::Update(float fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>> eventlist)
 {
+	return nullptr;
 }

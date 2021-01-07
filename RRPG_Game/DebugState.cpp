@@ -1,27 +1,19 @@
-#include "TitleScreen.h"
-#include "olcPixelGameEngine.h"
-#include "AnimatedGameTile.h"
-#include "StaticGameTile.h"
-#include "BGLayer.h"
+#include "DebugState.h"
 #include "GUILayer.h"
+#include "BGLayer.h"
+#include "DebugLayer.h"
 
-/*test*/
-
-#include <Windows.h>
-#include <mmsystem.h>
-#pragma comment(lib, "winmm.lib")
-
-TitleScreen::TitleScreen(std::string name) : 
+DebugState::DebugState(std::string name) :
 	State(name)
 {
 }
 
-StateChanger TitleScreen::Execute(float fElapsedTime)
+StateChanger DebugState::Execute(float fElapsedTime)
 {
 	StateChanger returnState = StateChanger::NO_CHANGE;
-	
+
 	/*Update all the Layers using the Elapsed Time.
-	  The Layers are able to issue a State Change, in this Example with a click on the "New Run" Button*/
+	  In the DebugState, no Layers can invoke a State Change, only the ESC Button*/
 	StateChanger tempState;
 	for (auto l : this->Layers) {
 		tempState = l->Update(fElapsedTime, this->ExternalEvents);
@@ -29,14 +21,25 @@ StateChanger TitleScreen::Execute(float fElapsedTime)
 			returnState = tempState;
 		}
 	}
+
+	/*Check for ESC Key Press*/
+	if (pge->GetKey(olc::ESCAPE).bReleased) {
+		returnState = StateChanger::TITLESCREEN;
+	}
 	return returnState;
 }
 
-std::string TitleScreen::GetStateStringFromChanger(StateChanger state)
+std::string DebugState::GetStateStringFromChanger(StateChanger state)
 {
 	switch (state) {
-	case StateChanger::NEW_GAME:
+	case StateChanger::MAIN_GAME:
 		return "MainGame";
+		break;
+	case StateChanger::TITLESCREEN:
+		return "TitleScreen";
+		break;
+	case StateChanger::NO_CHANGE:
+		return "DebugScreen";
 		break;
 	case StateChanger::DEBUG:
 		return "DebugScreen";
@@ -45,27 +48,32 @@ std::string TitleScreen::GetStateStringFromChanger(StateChanger state)
 		return "TitleScreen";
 		break;
 	}
+	return std::string();
 }
 
-/*This is called once in OnUserCreate() to setup up the basic objects*/
-bool TitleScreen::Setup()
+bool DebugState::Setup()
 {
 	std::cout << "Executing Setup Routine for TitleScreen...\n";
 	std::cout << "Adding Objects...\n";
 
 	/*temp int variable to store the layer IDs*/
 	int lay_id = 0;
-	
+
+	/* Adding the Debug Layer*/
+	lay_id = pge->CreateLayer();
+	std::shared_ptr<DebugLayer> debug_layer = std::make_shared<DebugLayer>(lay_id, PackingManager::PackingStyle::DEBUG_SCREEN);
+	this->Layers.push_back(debug_layer);
+
 	/*Adding the GUI Layer*/
 	lay_id = pge->CreateLayer();
 	/*Create GUI Layer instance and add it to the Layers list*/
-	std::shared_ptr<GUILayer> title_gui = std::make_shared<GUILayer>(lay_id, PackingManager::PackingStyle::TITLE_SCREEN);
-	this->Layers.push_back(title_gui);
+	std::shared_ptr<GUILayer> debug_gui = std::make_shared<GUILayer>(lay_id, PackingManager::PackingStyle::DEBUG_SCREEN);
+	this->Layers.push_back(debug_gui);
 
 	/* Adding the Background Layer*/
 	lay_id = pge->CreateLayer();
-	std::shared_ptr<BGLayer> title_background = std::make_shared<BGLayer>(lay_id, pge->ScreenWidth(), pge->ScreenHeight(), "./gfx/titlescreen_bg.png");
-	this->Layers.push_back(title_background);
+	std::shared_ptr<BGLayer> debug_background = std::make_shared<BGLayer>(lay_id, pge->ScreenWidth(), pge->ScreenHeight(), std::string(), olc::WHITE);
+	this->Layers.push_back(debug_background);
 
 	/*Temporary Packing Manager Pointer*/
 	std::shared_ptr<LayerPM> manager;
@@ -82,15 +90,10 @@ bool TitleScreen::Setup()
 	/*Clear Layer 0 to Transparent, because this Layer never gets used*/
 	pge->Clear(olc::BLANK);
 
-	/*Starting TitleScreen Music*/
-	/*std::cout << "Starting Title Music...\n";
-	PlaySound(TEXT("./music/TITLESCREEN.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);*/
-
-	
 	return true;
 }
 
-void TitleScreen::DrawContent(float fElapsedTime)
+void DebugState::DrawContent(float fElapsedTime)
 {
 	/*Draw every object in the AllObjects list*/
 	for (auto l : this->Layers) {
@@ -98,16 +101,16 @@ void TitleScreen::DrawContent(float fElapsedTime)
 	}
 }
 
-void TitleScreen::ChangeState(int state_id)
+void DebugState::ChangeState(int state_id)
 {
 }
 
-void TitleScreen::OnEnable()
+void DebugState::OnEnable()
 {
 	/*Clear the Screen...*/
 	pge->Clear(olc::BLANK);
 }
 
-void TitleScreen::OnDisable()
+void DebugState::OnDisable()
 {
 }

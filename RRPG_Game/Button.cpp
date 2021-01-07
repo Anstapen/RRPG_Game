@@ -1,11 +1,14 @@
 #include "Button.h"
+#include "ButtonEvent.h"
 
 Button::Button(std::string path, int width, int height, olc::vf2d pos) :
 	GameObject(pos),
 	Height(height),
 	Width(width),
 	State(Button::ButtonState::BUTTON_IDLE),
-	image(std::make_unique<olc::Renderable>())
+	image(std::make_unique<olc::Renderable>()),
+	InvokedOnRelease(EventType::etype::DEFAULT),
+	InvokedOnMouseOver(EventType::etype::DEFAULT)
 {
 
 	/*Set up the Renderable*/
@@ -25,7 +28,7 @@ void Button::Draw(float fElapsedTime)
 	pge->DrawPartialDecal(drawing_pos, this->image.get()->Decal(), src_pos, olc::vf2d(this->Width, this->Height));
 }
 
-void Button::Update(float fElapsedTime)
+std::shared_ptr<Event> Button::Update(float fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>> eventlist)
 {
 	/*Change the Button State Depending on the Mouse Location*/
 	olc::vi2d mouse_pos = { pge->GetMouseX(), pge->GetMouseY() };
@@ -49,11 +52,38 @@ void Button::Update(float fElapsedTime)
 	}
 	/*Check if the Button was Released*/
 	if (this->State != Button::ButtonState::BUTTON_IDLE && pge->GetMouse(0).bReleased) {
+		/*Change the Button State*/
 		this->State = Button::ButtonState::BUTTON_RELEASED;
 	}
+
+	/*Create Events if the criteria matches*/
+	if (this->State == Button::ButtonState::BUTTON_MOUSEOVER) {
+		eventlist->push_back(std::make_shared<ButtonEvent>(this->InvokedOnMouseOver));
+	}
+	if (this->State == Button::ButtonState::BUTTON_RELEASED) {
+		eventlist->push_back(std::make_shared<ButtonEvent>(this->InvokedOnRelease));
+	}
+
+	/*For Now, do not return any external Events*/
+	return nullptr;
 }
 
 Button::ButtonState Button::GetState() const
 {
 	return this->State;
+}
+
+void Button::setReleaseEvent(EventType::etype in_type)
+{
+	this->InvokedOnRelease = in_type;
+}
+
+void Button::setMOEvent(EventType::etype in_type)
+{
+	this->InvokedOnMouseOver = in_type;
+}
+
+EventType Button::GetEventType() const
+{
+	return EventType();
 }
