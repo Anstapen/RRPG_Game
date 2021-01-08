@@ -2,6 +2,8 @@
 #include "GUILayer.h"
 #include "BGLayer.h"
 #include "DebugLayer.h"
+#include "SimplePoly.h"
+#include "Button.h"
 
 DebugState::DebugState(std::string name) :
 	State(name)
@@ -53,22 +55,34 @@ std::string DebugState::GetStateStringFromChanger(StateChanger state)
 
 bool DebugState::Setup()
 {
-	std::cout << "Executing Setup Routine for TitleScreen...\n";
+	std::cout << "Executing Setup Routine for DebugScreen...\n";
 	std::cout << "Adding Objects...\n";
 
 	/*temp int variable to store the layer IDs*/
 	int lay_id = 0;
 
-	/* Adding the Debug Layer*/
-	lay_id = pge->CreateLayer();
-	std::shared_ptr<DebugLayer> debug_layer = std::make_shared<DebugLayer>(lay_id, PackingManager::PackingStyle::DEBUG_SCREEN);
-	this->Layers.push_back(debug_layer);
+	
 
 	/*Adding the GUI Layer*/
 	lay_id = pge->CreateLayer();
 	/*Create GUI Layer instance and add it to the Layers list*/
 	std::shared_ptr<GUILayer> debug_gui = std::make_shared<GUILayer>(lay_id, PackingManager::PackingStyle::DEBUG_SCREEN);
 	this->Layers.push_back(debug_gui);
+
+	/* Adding the Debug Layer*/
+	lay_id = pge->CreateLayer();
+	std::shared_ptr<DebugLayer> debug_layer = std::make_shared<DebugLayer>(lay_id, PackingManager::PackingStyle::DEBUG_SCREEN);
+
+	std::vector<olc::vf2d> points = { {-7, 4}, {7, 4}, {12, 0}, {7, -4}, {-7, -4}, {-12, 0} };
+	/*Add two Polygons*/
+	std::shared_ptr<SimplePoly> in_poly1 = std::make_shared<SimplePoly>(olc::vf2d(100.0f, 100.0f), points);
+	std::shared_ptr<SimplePoly> in_poly2 = std::make_shared<SimplePoly>(olc::vf2d(150.0f, 150.0f), points);
+
+	debug_layer->AddObject(in_poly1);
+	debug_layer->AddObject(in_poly2);
+	debug_layer->poly1 = in_poly1;
+	debug_layer->poly2 = in_poly2;
+	this->Layers.push_back(debug_layer);
 
 	/* Adding the Background Layer*/
 	lay_id = pge->CreateLayer();

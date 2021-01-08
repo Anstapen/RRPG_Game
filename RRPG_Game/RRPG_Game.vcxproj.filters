@@ -129,6 +129,12 @@
     <ClCompile Include="EventType.cpp">
       <Filter>Quelldateien\Events</Filter>
     </ClCompile>
+    <ClCompile Include="Ellipse.cpp">
+      <Filter>Quelldateien\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="SimplePoly.cpp">
+      <Filter>Quelldateien\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -214,6 +220,12 @@
     </ClInclude>
     <ClInclude Include="EventType.h">
       <Filter>Headerdateien\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Ellipse.h">
+      <Filter>Headerdateien\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="SimplePoly.h">
+      <Filter>Headerdateien\Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

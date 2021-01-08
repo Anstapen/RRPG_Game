@@ -28,11 +28,9 @@ void BGLayer::Setup()
 {
 }
 
-void BGLayer::Draw(float fElapsedTime)
+void BGLayer::OnDraw(float fElapsedTime)
 {
-	pge->SetDrawTarget(this->ID);
 	pge->DrawDecal(olc::vf2d(0.0f, 0.0f), this->decImage.get());
-	pge->SetDrawTarget(nullptr);
 }
 
 bool BGLayer::OnEnable()

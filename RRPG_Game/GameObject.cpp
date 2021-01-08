@@ -8,3 +8,8 @@ olc::vf2d GameObject::GetPosition()
 {
 	return this->CenterPosition;
 }
+
+void GameObject::SetPosition(olc::vf2d in_pos)
+{
+	this->CenterPosition = in_pos;
+}

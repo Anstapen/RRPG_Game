@@ -6,7 +6,7 @@
 int main(void) {
 	std::cout << "Starting Game...\n";
 	Game game;
-	if (game.Construct(480, 288, 4, 4)) {
+	if (game.Construct(960, 576, 2, 2)) {
 		//SetCursor(NULL);
 		ShowCursor(false);
 		game.Start();

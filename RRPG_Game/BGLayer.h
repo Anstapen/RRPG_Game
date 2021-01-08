@@ -19,12 +19,13 @@ public:
 		olc::Pixel in_colour = olc::WHITE
 	);
 	virtual void Setup() override;
-	virtual void Draw(float fElapsedTime) override;
+	
 	virtual StateChanger Update(float fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>> eventlist) override;
 	virtual std::shared_ptr<LayerPM> GetLayerPM() override;
 protected:
 	virtual bool OnEnable() override;
 	virtual bool OnDisable() override;
+	virtual void OnDraw(float fElapsedTime) override;
 	virtual StateChanger HandleEvents() override;
 	std::unique_ptr<olc::Sprite> sprImage;
 	std::unique_ptr<olc::Decal> decImage;

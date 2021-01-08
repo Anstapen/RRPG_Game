@@ -19,6 +19,7 @@ public:
     virtual void Draw(float fElapsedTime) = 0;
     virtual std::shared_ptr<Event> Update(float fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>> eventlist) = 0;
     olc::vf2d GetPosition();
+    void SetPosition(olc::vf2d in_pos);
 protected:
     /*The centered Position of the Object, 
     drawing position can be easily calculated because the Sprite is 24x24 px*/

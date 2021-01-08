@@ -145,6 +145,7 @@
     <ClCompile Include="ButtonType.cpp" />
     <ClCompile Include="DebugLayerPM.cpp" />
     <ClCompile Include="DebugState.cpp" />
+    <ClCompile Include="Ellipse.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="EventType.cpp" />
     <ClCompile Include="GUILayerPM.cpp" />
@@ -161,6 +162,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="PackingManager.cpp" />
+    <ClCompile Include="SimplePoly.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateChanger.cpp" />
     <ClCompile Include="StaticGameTile.cpp" />
@@ -174,6 +176,7 @@
     <ClInclude Include="ButtonType.h" />
     <ClInclude Include="DebugLayerPM.h" />
     <ClInclude Include="DebugState.h" />
+    <ClInclude Include="Ellipse.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="EventType.h" />
     <ClInclude Include="GUILayerPM.h" />
@@ -191,6 +194,7 @@
     <ClInclude Include="olcPGEX_AnimatedSprite.h" />
     <ClInclude Include="olcPixelGameEngine.h" />
     <ClInclude Include="PackingManager.h" />
+    <ClInclude Include="SimplePoly.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateChanger.h" />
     <ClInclude Include="StaticGameTile.h" />

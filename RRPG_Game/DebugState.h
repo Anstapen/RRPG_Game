@@ -1,5 +1,6 @@
 #pragma once
 #include "State.h"
+#include "SimplePoly.h"
 class DebugState :
 	public State
 {

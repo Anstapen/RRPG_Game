@@ -29,7 +29,7 @@ StateChanger GUILayer::Update(float FElapsedTime, std::shared_ptr<std::list<std:
 	return return_state;
 }
 
-void GUILayer::Draw(float fElapsedTime)
+void GUILayer::OnDraw(float fElapsedTime)
 {
 	for (auto o : this->AllObjects) {
 		o->Draw(fElapsedTime);
@@ -43,12 +43,12 @@ std::shared_ptr<LayerPM> GUILayer::GetLayerPM()
 
 bool GUILayer::OnEnable()
 {
-	return false;
+	return true;
 }
 
 bool GUILayer::OnDisable()
 {
-	return false;
+	return true;
 }
 
 StateChanger GUILayer::HandleEvents()

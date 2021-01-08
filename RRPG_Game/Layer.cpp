@@ -9,6 +9,14 @@ Layer::Layer(int layerid, PackingManager::PackingStyle pack, std::list<std::shar
 {
 }
 
+void Layer::Draw(float fElapsedTime)
+{
+	pge->SetDrawTarget(this->ID);
+	pge->Clear(olc::BLANK);
+	OnDraw(fElapsedTime);
+	pge->SetDrawTarget(nullptr);
+}
+
 
 void Layer::AddObject(std::shared_ptr<GameObject> obj)
 {
