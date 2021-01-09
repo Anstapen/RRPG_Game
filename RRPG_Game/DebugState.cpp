@@ -73,16 +73,6 @@ bool DebugState::Setup()
 	lay_id = pge->CreateLayer();
 	std::shared_ptr<DebugLayer> debug_layer = std::make_shared<DebugLayer>(lay_id, PackingManager::PackingStyle::DEBUG_SCREEN);
 
-	std::vector<olc::vf2d> points = { {-7, 4}, {7, 4}, {12, 0}, {7, -4}, {-7, -4}, {-12, 0} };
-	/*Add two Polygons*/
-	std::shared_ptr<SimplePoly> in_poly1 = std::make_shared<SimplePoly>(olc::vf2d(100.0f, 100.0f), points);
-	std::shared_ptr<SimplePoly> in_poly2 = std::make_shared<SimplePoly>(olc::vf2d(150.0f, 150.0f), points);
-
-	debug_layer->AddObject(in_poly1);
-	debug_layer->AddObject(in_poly2);
-	debug_layer->poly1 = in_poly1;
-	debug_layer->poly2 = in_poly2;
-	this->Layers.push_back(debug_layer);
 
 	/* Adding the Background Layer*/
 	lay_id = pge->CreateLayer();
@@ -109,7 +99,7 @@ bool DebugState::Setup()
 
 void DebugState::DrawContent(float fElapsedTime)
 {
-	/*Draw every object in the AllObjects list*/
+	/*Draw every Layer in the Layers list*/
 	for (auto l : this->Layers) {
 		l->Draw(fElapsedTime);
 	}

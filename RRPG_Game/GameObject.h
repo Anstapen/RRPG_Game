@@ -21,8 +21,7 @@ public:
     olc::vf2d GetPosition();
     void SetPosition(olc::vf2d in_pos);
 protected:
-    /*The centered Position of the Object, 
-    drawing position can be easily calculated because the Sprite is 24x24 px*/
+    /*The centered Position of the Object*/
     olc::vf2d CenterPosition;
     /* A list of Hitboxes around the CenterPostion of the Object. Empty list means: use complete Tile as hitbox*/
     std::list<HitBox> CombinedHitBox;

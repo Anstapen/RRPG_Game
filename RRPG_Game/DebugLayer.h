@@ -16,9 +16,7 @@ public:
 	virtual std::shared_ptr<LayerPM> GetLayerPM() override;
 
 
-	/*TEST MEMBER*/
-	std::shared_ptr<SimplePoly> poly1;
-	std::shared_ptr<SimplePoly> poly2;
+
 protected:
 	virtual bool OnEnable() override;
 	virtual bool OnDisable() override;

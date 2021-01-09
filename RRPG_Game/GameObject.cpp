@@ -1,6 +1,6 @@
 #include "GameObject.h"
 
-GameObject::GameObject(olc::vf2d pos, std::list<HitBox> CombHitBox) : CenterPosition(pos), CombinedHitBox(CombHitBox)
+GameObject::GameObject(olc::vf2d in_pos, std::list<HitBox> CombHitBox) : CenterPosition(in_pos), CombinedHitBox(CombHitBox)
 {
 }
 

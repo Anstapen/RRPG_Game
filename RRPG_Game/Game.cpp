@@ -15,10 +15,12 @@ bool Game::OnUserCreate()
 	std::unique_ptr<State> title = std::make_unique<TitleScreen>("TitleScreen");
 	std::unique_ptr<State> maingame = std::make_unique<MainGame>("MainGame");
 	std::unique_ptr<State> debug_screen = std::make_unique<DebugState>("DebugScreen");
+	
 
 	this->StateList.push_back(std::move(title));
 	this->StateList.push_back(std::move(maingame));
 	this->StateList.push_back(std::move(debug_screen));
+	
 
 
 	/*Execute Setup for each State*/

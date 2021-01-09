@@ -135,6 +135,9 @@
     <ClCompile Include="SimplePoly.cpp">
       <Filter>Quelldateien\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Overlay.cpp">
+      <Filter>Quelldateien\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -225,6 +228,9 @@
       <Filter>Headerdateien\Objects</Filter>
     </ClInclude>
     <ClInclude Include="SimplePoly.h">
+      <Filter>Headerdateien\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Overlay.h">
       <Filter>Headerdateien\Objects</Filter>
     </ClInclude>
   </ItemGroup>
