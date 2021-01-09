@@ -149,6 +149,7 @@
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="EventType.cpp" />
     <ClCompile Include="GameLayer.cpp" />
+    <ClCompile Include="GameLayerPM.cpp" />
     <ClCompile Include="GUILayerPM.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Cursor.cpp" />
@@ -163,8 +164,10 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="MAP_ID.cpp" />
     <ClCompile Include="Overlay.cpp" />
     <ClCompile Include="PackingManager.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="SimplePoly.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateChanger.cpp" />
@@ -185,6 +188,7 @@
     <ClInclude Include="Event.h" />
     <ClInclude Include="EventType.h" />
     <ClInclude Include="GameLayer.h" />
+    <ClInclude Include="GameLayerPM.h" />
     <ClInclude Include="GUILayerPM.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Cursor.h" />
@@ -198,10 +202,12 @@
     <ClInclude Include="LayerPM.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="MAP_ID.h" />
     <ClInclude Include="olcPGEX_AnimatedSprite.h" />
     <ClInclude Include="olcPixelGameEngine.h" />
     <ClInclude Include="Overlay.h" />
     <ClInclude Include="PackingManager.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="SimplePoly.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateChanger.h" />

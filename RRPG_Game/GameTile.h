@@ -10,6 +10,8 @@ public:
 		bool collidable = true,
 		std::list<HitBox> CombHitBox = std::list<HitBox>()
 	);
+	virtual ~GameTile() = default;
+	GameTile(const GameTile& other) = delete;
 	/* This Method draws the Object on the Screen and has to be implemented by the child class*/
 	virtual void Draw(float fElapsedTime) = 0;
 	virtual std::shared_ptr<Event> Update(float fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>> eventlist) = 0;

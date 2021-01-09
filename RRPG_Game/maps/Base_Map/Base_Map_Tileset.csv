@@ -1,3 +1,3 @@
 path,isCollidable,isAnimated,NoOfFrames
 ./gfx/Map_Tiles/Background_Grass.png,0,0,0
-./gfx/Map_Tiles/Grass_Moving.png,0,1,4
+./gfx/Map_Tiles/Grass_Final.png,0,1,4

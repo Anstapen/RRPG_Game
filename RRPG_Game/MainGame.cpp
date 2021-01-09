@@ -3,6 +3,8 @@
 #include "DebugLayer.h"
 #include "BGLayer.h"
 #include "TileSet.h"
+#include "Map.h"
+#include "GameLayer.h"
 
 MainGame::MainGame(std::string name) : State(name)
 {
@@ -57,6 +59,12 @@ bool MainGame::Setup()
 	std::shared_ptr<GUILayer> maingame_gui = std::make_shared<GUILayer>(lay_id, PackingManager::PackingStyle::MAIN_GAME);
 	this->Layers.push_back(maingame_gui);
 
+	/*Adding the Game Layer*/
+	lay_id = pge->CreateLayer();
+	std::shared_ptr<GameLayer> maingame_game = std::make_shared<GameLayer>(lay_id);
+
+	this->Layers.push_back(maingame_game);
+
 	/* Adding the Background Layer*/
 	lay_id = pge->CreateLayer();
 	std::shared_ptr<BGLayer> maingame_background = std::make_shared<BGLayer>(lay_id, pge->ScreenWidth(), pge->ScreenHeight(), std::string(), olc::WHITE);
@@ -73,17 +81,13 @@ bool MainGame::Setup()
 		manager = l->GetLayerPM();
 		/*Use the Packing Manager to populater the Layer*/
 		manager->PackLayer(l);
+		/*Execute the Setup function for each layer*/
+		l->Setup();
 		/*After that, Enable the Layer*/
 		l->EnableLayer();
 	}
 	/*Clear Layer 0 to Transparent, because this Layer never gets used*/
 	pge->Clear(olc::BLANK);
-
-
-	/*TEST try to parse csv*/
-	TileSet testSet(0, "./maps/Base_Map/Base_Map_Tileset.csv");
-	testSet.ReadConfig();
-
 	return true;
 }
 
