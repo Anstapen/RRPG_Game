@@ -14,6 +14,6 @@ public:
 	virtual void Draw(float fElapsedTime) = 0;
 	virtual std::shared_ptr<Event> Update(float fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>> eventlist) = 0;
 protected:
-	/*Determines if other Objects are obsttructed in their movement if they collide with this object*/
+	/*Determines if other Objects are obstructed in their movement if they collide with this object*/
 	bool Collidable;
 };

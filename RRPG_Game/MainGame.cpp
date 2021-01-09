@@ -2,6 +2,7 @@
 #include "GUILayer.h"
 #include "DebugLayer.h"
 #include "BGLayer.h"
+#include "TileSet.h"
 
 MainGame::MainGame(std::string name) : State(name)
 {
@@ -78,6 +79,10 @@ bool MainGame::Setup()
 	/*Clear Layer 0 to Transparent, because this Layer never gets used*/
 	pge->Clear(olc::BLANK);
 
+
+	/*TEST try to parse csv*/
+	TileSet testSet(0, "./maps/Base_Map/Base_Map_Tileset.csv");
+	testSet.ReadConfig();
 
 	return true;
 }

@@ -138,6 +138,15 @@
     <ClCompile Include="Overlay.cpp">
       <Filter>Quelldateien\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="GameLayer.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="TileSet.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -232,6 +241,18 @@
     </ClInclude>
     <ClInclude Include="Overlay.h">
       <Filter>Headerdateien\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLayer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="TileSet.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="csv.h">
+      <Filter>Headerdateien\Externals</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
