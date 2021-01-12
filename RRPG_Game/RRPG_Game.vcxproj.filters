@@ -117,9 +117,6 @@
     <ClCompile Include="ButtonEvent.cpp">
       <Filter>Quelldateien\Events</Filter>
     </ClCompile>
-    <ClCompile Include="StateChanger.cpp">
-      <Filter>Quelldateien\States</Filter>
-    </ClCompile>
     <ClCompile Include="ButtonType.cpp">
       <Filter>Quelldateien\Objects</Filter>
     </ClCompile>
@@ -155,6 +152,9 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="StateType.cpp">
+      <Filter>Quelldateien\States</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -227,9 +227,6 @@
     <ClInclude Include="ButtonEvent.h">
       <Filter>Headerdateien\Events</Filter>
     </ClInclude>
-    <ClInclude Include="StateChanger.h">
-      <Filter>Headerdateien\States</Filter>
-    </ClInclude>
     <ClInclude Include="ButtonType.h">
       <Filter>Headerdateien\Objects</Filter>
     </ClInclude>
@@ -271,6 +268,9 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="StateType.h">
+      <Filter>Headerdateien\States</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -329,19 +329,47 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <None Include="gfx\Blue_Char.aseprite" />
-    <None Include="gfx\Blue_Test_Button.aseprite" />
-    <None Include="gfx\char.aseprite" />
-    <None Include="gfx\Debug_Button.aseprite" />
-    <None Include="gfx\Esc_Button.aseprite" />
-    <None Include="gfx\MainGame_GUI_Overlay.aseprite" />
-    <None Include="gfx\Moving_BG.aseprite" />
-    <None Include="gfx\NewGame_Button.aseprite" />
-    <None Include="gfx\NewGame_Button-Sheet.aseprite" />
-    <None Include="gfx\Sword_Cursor.aseprite" />
-    <None Include="gfx\Sword_Cursor-Sheet.aseprite" />
-    <None Include="gfx\Test_Button.aseprite" />
-    <None Include="gfx\titlescreen_bg.aseprite" />
-    <None Include="gfx\transparent.aseprite" />
+    <None Include="gfx\Blue_Char.aseprite">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="gfx\Blue_Test_Button.aseprite">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="gfx\char.aseprite">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="gfx\Debug_Button.aseprite">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="gfx\Esc_Button.aseprite">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="gfx\MainGame_GUI_Overlay.aseprite">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="gfx\Moving_BG.aseprite">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="gfx\NewGame_Button.aseprite">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="gfx\NewGame_Button-Sheet.aseprite">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="gfx\Sword_Cursor.aseprite">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="gfx\Sword_Cursor-Sheet.aseprite">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="gfx\Test_Button.aseprite">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="gfx\titlescreen_bg.aseprite">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="gfx\transparent.aseprite">
+      <Filter>Ressourcendateien</Filter>
+    </None>
   </ItemGroup>
 </Project>

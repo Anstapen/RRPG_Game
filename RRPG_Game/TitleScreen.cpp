@@ -11,40 +11,25 @@
 #include <mmsystem.h>
 #pragma comment(lib, "winmm.lib")
 
-TitleScreen::TitleScreen(std::string name) : 
-	State(name)
+TitleScreen::TitleScreen(StateType in_type) : 
+	State(in_type)
 {
 }
 
-StateChanger TitleScreen::Execute(float fElapsedTime)
+StateType TitleScreen::Execute(float fElapsedTime)
 {
-	StateChanger returnState = StateChanger::NO_CHANGE;
+	StateType returnState = StateType::NO_CHANGE;
 	
 	/*Update all the Layers using the Elapsed Time.
 	  The Layers are able to issue a State Change, in this Example with a click on the "New Run" Button*/
-	StateChanger tempState;
+	StateType tempState;
 	for (auto l : this->Layers) {
 		tempState = l->Update(fElapsedTime, this->ExternalEvents);
-		if (tempState != StateChanger::NO_CHANGE) {
+		if (tempState != StateType::NO_CHANGE) {
 			returnState = tempState;
 		}
 	}
 	return returnState;
-}
-
-std::string TitleScreen::GetStateStringFromChanger(StateChanger state)
-{
-	switch (state) {
-	case StateChanger::NEW_GAME:
-		return "MainGame";
-		break;
-	case StateChanger::DEBUG:
-		return "DebugScreen";
-		break;
-	default:
-		return "TitleScreen";
-		break;
-	}
 }
 
 /*This is called once in OnUserCreate() to setup up the basic objects*/
@@ -98,9 +83,6 @@ void TitleScreen::DrawContent(float fElapsedTime)
 	}
 }
 
-void TitleScreen::ChangeState(int state_id)
-{
-}
 
 void TitleScreen::OnEnable()
 {

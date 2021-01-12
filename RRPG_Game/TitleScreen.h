@@ -4,17 +4,16 @@
 #include "Button.h"
 #include "Cursor.h"
 #include "Layer.h"
+#include "StateType.h"
 
 class TitleScreen :
 	public State
 {
 public:
-	TitleScreen(std::string name);
-	virtual StateChanger Execute(float fElapsedTime) override;
-	virtual std::string GetStateStringFromChanger(StateChanger state) override;
+	TitleScreen(StateType in_type);
+	virtual StateType Execute(float fElapsedTime) override;
 	virtual bool Setup() override;
 	virtual void DrawContent(float fElapsedTime) override;
-	virtual void ChangeState(int state_id) override;
 	virtual void OnEnable() override;
 	virtual void OnDisable() override;
 

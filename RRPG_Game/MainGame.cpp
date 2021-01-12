@@ -6,21 +6,21 @@
 #include "Map.h"
 #include "GameLayer.h"
 
-MainGame::MainGame(std::string name) : State(name)
+MainGame::MainGame(StateType in_type) : State(in_type)
 {
 }
 
-StateChanger MainGame::Execute(float fElapsedTime)
+StateType MainGame::Execute(float fElapsedTime)
 {
-	StateChanger returnState = StateChanger::NO_CHANGE;
+	StateType returnState = StateType::NO_CHANGE;
 
 
 	/*Update all the Layers using the Elapsed Time.
 	  The Layers are able to issue a State Change, in this Example with a click on the "New Run" Button*/
-	StateChanger tempState;
+	StateType tempState;
 	for (auto l : this->Layers) {
 		tempState = l->Update(fElapsedTime, this->ExternalEvents);
-		if (tempState != StateChanger::NO_CHANGE) {
+		if (tempState != StateType::NO_CHANGE) {
 			returnState = tempState;
 		}
 	}
@@ -28,22 +28,11 @@ StateChanger MainGame::Execute(float fElapsedTime)
 
 	/* Check if the ESC Key is released*/
 	if (pge->GetKey(olc::Key::ESCAPE).bReleased) {
-		returnState = StateChanger::TITLESCREEN;
+		returnState = StateType::TITLESCREEN;
 	}
 	return returnState;
 }
 
-std::string MainGame::GetStateStringFromChanger(StateChanger state)
-{
-	switch (state) {
-	case  StateChanger::TITLESCREEN:
-		return "TitleScreen";
-		break;
-	default:
-		return "MainGame";
-		break;
-	}
-}
 
 bool MainGame::Setup()
 {
@@ -99,9 +88,6 @@ void MainGame::DrawContent(float fElapsedTime)
 	}
 }
 
-void MainGame::ChangeState(int state_id)
-{
-}
 
 void MainGame::OnEnable()
 {

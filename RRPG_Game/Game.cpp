@@ -9,12 +9,13 @@ Game::Game()
 {
 }
 
+
 bool Game::OnUserCreate()
 {
 	/*Fill the StateList manually, because there should not be that many States*/
-	std::unique_ptr<State> title = std::make_unique<TitleScreen>("TitleScreen");
-	std::unique_ptr<State> maingame = std::make_unique<MainGame>("MainGame");
-	std::unique_ptr<State> debug_screen = std::make_unique<DebugState>("DebugScreen");
+	std::unique_ptr<State> title = std::make_unique<TitleScreen>(StateType::TITLESCREEN);
+	std::unique_ptr<State> maingame = std::make_unique<MainGame>(StateType::MAIN_GAME);
+	std::unique_ptr<State> debug_screen = std::make_unique<DebugState>(StateType::DEBUG);
 	
 
 	this->StateList.push_back(std::move(title));
@@ -34,7 +35,7 @@ bool Game::OnUserUpdate(float fElapsedTime)
 {
 	
 	/*Execute current State of the Game*/
-	StateChanger returnState = this->StateList[this->iCurrentState].get()->Execute(fElapsedTime);
+	StateType returnState = this->StateList[this->iCurrentState].get()->Execute(fElapsedTime);
 
 	/*Draw everything of the current State*/
 	this->DrawCurrentState(fElapsedTime);
@@ -43,11 +44,10 @@ bool Game::OnUserUpdate(float fElapsedTime)
 
 	/*determine which state gets executed in the next frame, depending on the return value.
 	  TODO: Find a better Way to do this, instead of using string compare...*/
-	if (returnState != StateChanger::NO_CHANGE) {
+	if (returnState != StateType::NO_CHANGE) {
 		/* newState contains the name*/
-		std::string newState = this->StateList[this->iCurrentState].get()->GetStateStringFromChanger(returnState);
-		unsigned int new_index = this->GetNextStateIndex(newState);
-		std::cout << "State Changed to " << newState << ", index: " << new_index << "!\n";
+		unsigned int new_index = this->GetNextStateIndex(returnState);
+		std::cout << "State Changed to " <<  ", index: " << new_index << "!\n";
 
 		/*Invoking the OnDisable Function of the current State*/
 		this->StateList[this->iCurrentState]->OnDisable();
@@ -55,14 +55,15 @@ bool Game::OnUserUpdate(float fElapsedTime)
 		/*Invoking the OnEnable Function of the new State*/
 		this->StateList[this->iCurrentState]->OnEnable();
 	}
+	//Clear(olc::WHITE);
 	
 	return true;
 }
 
-unsigned int Game::GetNextStateIndex(std::string name)
+unsigned int Game::GetNextStateIndex(StateType state)
 {
 	for (int i = 0; i < (int)this->StateList.size(); i++) {
-		if (this->StateList[i].get()->sName == name) {
+		if (this->StateList[i].get()->Type == state) {
 			return i;
 		}
 	}

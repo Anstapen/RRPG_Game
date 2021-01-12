@@ -16,9 +16,9 @@ void GameLayer::Setup()
 	this->currentMap.get()->LoadMap(MAP_ID::DEFAULT);
 }
 
-StateChanger GameLayer::Update(float fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>> eventlist)
+StateType GameLayer::Update(float fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>> eventlist)
 {
-	StateChanger return_state = StateChanger::NO_CHANGE;
+	StateType return_state = StateType::NO_CHANGE;
 	/*Update Player Position*/
 	
 	/* TODO: Add given external Events to internal Eventlist*/
@@ -65,7 +65,7 @@ void GameLayer::OnDraw(float fElapsedTime)
 	}
 }
 
-StateChanger GameLayer::HandleEvents()
+StateType GameLayer::HandleEvents()
 {
-	return StateChanger::NO_CHANGE;
+	return StateType::NO_CHANGE;
 }

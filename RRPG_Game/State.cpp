@@ -1,6 +1,6 @@
 #include "State.h"
 
-State::State(std::string name) : sName(name)
+State::State(StateType in_type) : Type(in_type)
 {
 }
 

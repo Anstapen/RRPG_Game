@@ -43,9 +43,9 @@ bool BGLayer::OnDisable()
 	return true;
 }
 
-StateChanger BGLayer::HandleEvents()
+StateType BGLayer::HandleEvents()
 {
-	return StateChanger::NO_CHANGE;
+	return StateType::NO_CHANGE;
 }
 
 void BGLayer::PaintBG(int width, int height, olc::Pixel colour)
@@ -57,9 +57,9 @@ void BGLayer::PaintBG(int width, int height, olc::Pixel colour)
 	}
 }
 
-StateChanger BGLayer::Update(float fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>> eventlist)
+StateType BGLayer::Update(float fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>> eventlist)
 {
-	return StateChanger::NO_CHANGE;
+	return StateType::NO_CHANGE;
 }
 
 std::shared_ptr<LayerPM> BGLayer::GetLayerPM()

@@ -170,7 +170,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="SimplePoly.cpp" />
     <ClCompile Include="State.cpp" />
-    <ClCompile Include="StateChanger.cpp" />
+    <ClCompile Include="StateType.cpp" />
     <ClCompile Include="StaticGameTile.cpp" />
     <ClCompile Include="TileSet.cpp" />
     <ClCompile Include="TitleScreen.cpp" />
@@ -210,7 +210,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="SimplePoly.h" />
     <ClInclude Include="State.h" />
-    <ClInclude Include="StateChanger.h" />
+    <ClInclude Include="StateType.h" />
     <ClInclude Include="StaticGameTile.h" />
     <ClInclude Include="TileSet.h" />
     <ClInclude Include="TitleScreen.h" />

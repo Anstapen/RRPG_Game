@@ -17,14 +17,14 @@ void DebugLayer::OnDraw(float fElapsedTime)
 	}
 }
 
-StateChanger DebugLayer::Update(float fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>> eventlist)
+StateType DebugLayer::Update(float fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>> eventlist)
 {
 
 	/*Update all Objects, including our Polygons*/
 	for (auto o : this->AllObjects) {
 		o->Update(fElapsedTime, eventlist);
 	}
-	return StateChanger::NO_CHANGE;
+	return StateType::NO_CHANGE;
 }
 
 std::shared_ptr<LayerPM> DebugLayer::GetLayerPM()
@@ -42,7 +42,7 @@ bool DebugLayer::OnDisable()
 	return true;
 }
 
-StateChanger DebugLayer::HandleEvents()
+StateType DebugLayer::HandleEvents()
 {
-	return StateChanger::NO_CHANGE;
+	return StateType::NO_CHANGE;
 }

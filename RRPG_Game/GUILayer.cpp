@@ -13,9 +13,9 @@ void GUILayer::Setup()
 {
 }
 
-StateChanger GUILayer::Update(float fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>> eventlist)
+StateType GUILayer::Update(float fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>> eventlist)
 {
-	StateChanger return_state = StateChanger::NO_CHANGE;
+	StateType return_state = StateType::NO_CHANGE;
 	/* TODO: Add given external Events to internal Eventlist*/
 	std::shared_ptr<Event> ret_event;
 	for (auto o : this->AllObjects) {
@@ -57,9 +57,9 @@ bool GUILayer::OnDisable()
 	return true;
 }
 
-StateChanger GUILayer::HandleEvents()
+StateType GUILayer::HandleEvents()
 {
-	StateChanger return_state = StateChanger::NO_CHANGE;
+	StateType return_state = StateType::NO_CHANGE;
 	/*Check if there are any Events that change the State of the Game*/
 
 	std::list<std::shared_ptr<Event>>::iterator i = (*(this->InternalEvents)).begin();
@@ -69,16 +69,16 @@ StateChanger GUILayer::HandleEvents()
 		/*Check Events based on Event Type*/
 		switch ((*i)->GetEventType().GetEType()) {
 		case EventType::etype::CREATE_NEW_GAME:
-			return_state = StateChanger::NEW_GAME;
+			return_state = StateType::NEW_GAME;
 			/*Event has been processed, remove it from the List*/
 			i = this->InternalEvents->erase(i);
 			break;
 		case EventType::etype::SWITCH_TO_DEBUGSCREEN:
-			return_state = StateChanger::DEBUG;
+			return_state = StateType::DEBUG;
 			i = this->InternalEvents->erase(i);
 			break;
 		case EventType::etype::SWITCH_TO_TITLESCREEN:
-			return_state = StateChanger::TITLESCREEN;
+			return_state = StateType::TITLESCREEN;
 			i = this->InternalEvents->erase(i);
 			break;
 		default:

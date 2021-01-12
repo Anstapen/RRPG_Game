@@ -5,53 +5,32 @@
 #include "SimplePoly.h"
 #include "Button.h"
 
-DebugState::DebugState(std::string name) :
-	State(name)
+DebugState::DebugState(StateType in_type) :
+	State(in_type)
 {
 }
 
-StateChanger DebugState::Execute(float fElapsedTime)
+StateType DebugState::Execute(float fElapsedTime)
 {
-	StateChanger returnState = StateChanger::NO_CHANGE;
+	StateType returnState = StateType::NO_CHANGE;
 
 	/*Update all the Layers using the Elapsed Time.
 	  In the DebugState, no Layers can invoke a State Change, only the ESC Button*/
-	StateChanger tempState;
+	StateType tempState;
 	for (auto l : this->Layers) {
 		tempState = l->Update(fElapsedTime, this->ExternalEvents);
-		if (tempState != StateChanger::NO_CHANGE) {
+		if (tempState != StateType::NO_CHANGE) {
 			returnState = tempState;
 		}
 	}
 
 	/*Check for ESC Key Press*/
 	if (pge->GetKey(olc::ESCAPE).bReleased) {
-		returnState = StateChanger::TITLESCREEN;
+		returnState = StateType::TITLESCREEN;
 	}
 	return returnState;
 }
 
-std::string DebugState::GetStateStringFromChanger(StateChanger state)
-{
-	switch (state) {
-	case StateChanger::MAIN_GAME:
-		return "MainGame";
-		break;
-	case StateChanger::TITLESCREEN:
-		return "TitleScreen";
-		break;
-	case StateChanger::NO_CHANGE:
-		return "DebugScreen";
-		break;
-	case StateChanger::DEBUG:
-		return "DebugScreen";
-		break;
-	default:
-		return "TitleScreen";
-		break;
-	}
-	return std::string();
-}
 
 bool DebugState::Setup()
 {
@@ -105,9 +84,6 @@ void DebugState::DrawContent(float fElapsedTime)
 	}
 }
 
-void DebugState::ChangeState(int state_id)
-{
-}
 
 void DebugState::OnEnable()
 {
