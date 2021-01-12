@@ -273,4 +273,75 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="music\TITLESCREEN.wav">
+      <Filter>Ressourcendateien</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="maps\Base_Map.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="gfx\Blue_Char.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="gfx\Blue_Char_Moving.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="gfx\Blue_Test_Button.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="gfx\char.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="gfx\Cursor.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="gfx\Cursor_RED.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="gfx\Debug_Button.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="gfx\Esc_Button.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="gfx\Leaf.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="gfx\MainGame_GUI_Overlay.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="gfx\New_Run_Button.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="gfx\Sword_Cursor-Sheet.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="gfx\Test_Button.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="gfx\titlescreen_bg.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="gfx\transparent.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="gfx\Blue_Char.aseprite" />
+    <None Include="gfx\Blue_Test_Button.aseprite" />
+    <None Include="gfx\char.aseprite" />
+    <None Include="gfx\Debug_Button.aseprite" />
+    <None Include="gfx\Esc_Button.aseprite" />
+    <None Include="gfx\MainGame_GUI_Overlay.aseprite" />
+    <None Include="gfx\Moving_BG.aseprite" />
+    <None Include="gfx\NewGame_Button.aseprite" />
+    <None Include="gfx\NewGame_Button-Sheet.aseprite" />
+    <None Include="gfx\Sword_Cursor.aseprite" />
+    <None Include="gfx\Sword_Cursor-Sheet.aseprite" />
+    <None Include="gfx\Test_Button.aseprite" />
+    <None Include="gfx\titlescreen_bg.aseprite" />
+    <None Include="gfx\transparent.aseprite" />
+  </ItemGroup>
 </Project>

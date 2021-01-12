@@ -31,5 +31,4 @@ protected:
 	unsigned int NumberofAnimations;
 	/*Value to check if we have already drawn this Tile this Frame, gets reset at Update*/
 	bool AlreadyDrawn = false;
-	
 };

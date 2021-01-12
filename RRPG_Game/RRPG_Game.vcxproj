@@ -215,6 +215,43 @@
     <ClInclude Include="TileSet.h" />
     <ClInclude Include="TitleScreen.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="music\TITLESCREEN.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="gfx\Blue_Char.png" />
+    <Image Include="gfx\Blue_Char_Moving.png" />
+    <Image Include="gfx\Blue_Test_Button.png" />
+    <Image Include="gfx\char.png" />
+    <Image Include="gfx\Cursor.png" />
+    <Image Include="gfx\Cursor_RED.png" />
+    <Image Include="gfx\Debug_Button.png" />
+    <Image Include="gfx\Esc_Button.png" />
+    <Image Include="gfx\Leaf.png" />
+    <Image Include="gfx\MainGame_GUI_Overlay.png" />
+    <Image Include="gfx\New_Run_Button.png" />
+    <Image Include="gfx\Sword_Cursor-Sheet.png" />
+    <Image Include="gfx\Test_Button.png" />
+    <Image Include="gfx\titlescreen_bg.png" />
+    <Image Include="gfx\transparent.png" />
+    <Image Include="maps\Base_Map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="gfx\Blue_Char.aseprite" />
+    <None Include="gfx\Blue_Test_Button.aseprite" />
+    <None Include="gfx\char.aseprite" />
+    <None Include="gfx\Debug_Button.aseprite" />
+    <None Include="gfx\Esc_Button.aseprite" />
+    <None Include="gfx\MainGame_GUI_Overlay.aseprite" />
+    <None Include="gfx\Moving_BG.aseprite" />
+    <None Include="gfx\NewGame_Button-Sheet.aseprite" />
+    <None Include="gfx\NewGame_Button.aseprite" />
+    <None Include="gfx\Sword_Cursor-Sheet.aseprite" />
+    <None Include="gfx\Sword_Cursor.aseprite" />
+    <None Include="gfx\Test_Button.aseprite" />
+    <None Include="gfx\titlescreen_bg.aseprite" />
+    <None Include="gfx\transparent.aseprite" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
