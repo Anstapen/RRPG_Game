@@ -2,6 +2,7 @@
 #include "TitleScreen.h"
 #include "MainGame.h"
 #include "DebugState.h"
+#include "Debug.h"
 
 #pragma comment(lib, "User32.lib")
 
@@ -17,7 +18,7 @@ bool Game::OnUserCreate()
 	std::unique_ptr<State> maingame = std::make_unique<MainGame>(StateType::MAIN_GAME);
 	std::unique_ptr<State> debug_screen = std::make_unique<DebugState>(StateType::DEBUG);
 	
-
+	/*Push all the created states in the list*/
 	this->StateList.push_back(std::move(title));
 	this->StateList.push_back(std::move(maingame));
 	this->StateList.push_back(std::move(debug_screen));
@@ -28,6 +29,9 @@ bool Game::OnUserCreate()
 	for (int i = 0; i < (int)this->StateList.size(); i++) {
 		this->StateList[i].get()->Setup();
 	}
+
+
+
 	return true;
 }
 
@@ -42,26 +46,39 @@ bool Game::OnUserUpdate(float fElapsedTime)
 
 
 
-	/*determine which state gets executed in the next frame, depending on the return value.
-	  TODO: Find a better Way to do this, instead of using string compare...*/
+	/*determine which state gets executed in the next frame, depending on the return value.*/
 	if (returnState != StateType::NO_CHANGE) {
-		/* newState contains the name*/
+
+		/* Get the index of the next state in the list from the state type*/
 		unsigned int new_index = this->GetNextStateIndex(returnState);
 		std::cout << "State Changed to " <<  ", index: " << new_index << "!\n";
 
 		/*Invoking the OnDisable Function of the current State*/
 		this->StateList[this->iCurrentState]->OnDisable();
+
+		/*Change the current state*/
 		this->iCurrentState = new_index;
+
 		/*Invoking the OnEnable Function of the new State*/
 		this->StateList[this->iCurrentState]->OnEnable();
 	}
-	//Clear(olc::WHITE);
-	
+
+	/*All the debug stuff...*/
+#ifdef DEBUG_GAME
+	/*Check for F12 to print Debug info*/
+	if (this->GetKey(olc::Key::F12).bReleased) {
+		std::cout << "Objects created so far: " << debug_obj->nGameObjects << std::endl;
+		std::cout << "Objects copied so far: " << debug_obj->nObjectCopies << std::endl;
+	}
+#endif // DEBUG_GAME
+
 	return true;
 }
 
 unsigned int Game::GetNextStateIndex(StateType state)
 {
+	/*Iterate through the list and search for the state with the correct type
+	TODO: the state type is unique... so we do not need to search for it, just use it as vector index...*/
 	for (int i = 0; i < (int)this->StateList.size(); i++) {
 		if (this->StateList[i].get()->Type == state) {
 			return i;

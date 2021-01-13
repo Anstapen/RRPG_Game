@@ -1,6 +1,16 @@
 #pragma once
 #include "State.h"
-#include "SimplePoly.h"
+
+/**********************************************************************************************//**
+ * \class	DebugState
+ *
+ * \brief	This is a debug state that is accessible by a button on the titlescreen. It is used
+ * 			to test stuff.
+ *
+ * \author	Anton
+ * \date	13.01.2021
+ **************************************************************************************************/
+
 class DebugState :
 	public State
 {

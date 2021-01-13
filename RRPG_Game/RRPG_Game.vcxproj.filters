@@ -46,6 +46,12 @@
     <Filter Include="Quelldateien\Events">
       <UniqueIdentifier>{c992e6ce-5ce7-4977-b3ea-043548f0a182}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerdateien\DebugStuff">
+      <UniqueIdentifier>{c6880a20-64a4-49d8-b340-aad233bfed94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\DebugStuff">
+      <UniqueIdentifier>{249173ba-5d00-448a-bd2f-ba5d17ce6491}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -155,6 +161,9 @@
     </ClCompile>
     <ClCompile Include="StateType.cpp">
       <Filter>Quelldateien\States</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Quelldateien\DebugStuff</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -271,6 +280,9 @@
     </ClInclude>
     <ClInclude Include="StateType.h">
       <Filter>Headerdateien\States</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>Headerdateien\DebugStuff</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

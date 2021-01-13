@@ -1,7 +1,9 @@
 #define OLC_PGEX_ANIMSPR
 #include "AnimatedGameTile.h"
 #include "olcPixelGameEngine.h"
+#include "Debug.h"
 
+bool AnimatedGameTile::AlreadyDrawn = false;
 
 AnimatedGameTile::AnimatedGameTile(std::string in_path, unsigned int noa, float in_speed, bool movable, olc::vf2d pos, bool collidable, std::list<HitBox> CombHitBox) :
 	GameTile(pos, collidable, CombHitBox),
@@ -66,6 +68,10 @@ AnimatedGameTile& AnimatedGameTile::operator=(const AnimatedGameTile& other)
 	this->image.get()->AddState("default", this->speed, olc::AnimatedSprite::PLAY_MODE::LOOP, vec_positions);
 	this->image.get()->SetState("default");
 
+	/*if debug is enabled, increase the objects copied count*/
+#ifdef DEBUG_GAME
+	debug_obj->nObjectCopies++;
+#endif
 	/*return Object*/
 	return *this;
 }
@@ -75,12 +81,12 @@ void AnimatedGameTile::Draw(float fElapsedTime)
 	/*Compute actual top left postion of the object*/
 	olc::vf2d draw_pos = { (this->CenterPosition.x * 24.0f) - 12.0f, (this->CenterPosition.y * 24.0f) - 12.0f };
 	/*If this exact Tile was already drawn on the Screen, draw it again with 0 elapsed time*/
-	if (AlreadyDrawn) {
+	if (AnimatedGameTile::AlreadyDrawn) {
 		this->image.get()->Draw(0.0f, { draw_pos.x, draw_pos.y });
 	}
 	else {
 		this->image.get()->Draw(fElapsedTime, { draw_pos.x, draw_pos.y });
-		this->AlreadyDrawn = true;
+		AnimatedGameTile::AlreadyDrawn = true;
 	}
 	//this->image.get()->Draw(fElapsedTime, { draw_pos.x, draw_pos.y });
 	
@@ -90,6 +96,6 @@ void AnimatedGameTile::Draw(float fElapsedTime)
 std::shared_ptr<Event> AnimatedGameTile::Update(float fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>> eventlist)
 {
 	/*Reset the boolean*/
-	this->AlreadyDrawn = false;
+	AnimatedGameTile::AlreadyDrawn = false;
 	return nullptr;
 }

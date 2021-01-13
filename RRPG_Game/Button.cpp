@@ -8,7 +8,8 @@ Button::Button(std::string path, int width, int height, olc::vf2d pos) :
 	State(Button::ButtonState::BUTTON_IDLE),
 	image(std::make_unique<olc::Renderable>()),
 	InvokedOnRelease(EventType::etype::DEFAULT),
-	InvokedOnMouseOver(EventType::etype::DEFAULT)
+	InvokedOnMouseOver(EventType::etype::DEFAULT),
+	drawing_pos((pos.x - width / 2), (pos.y - height / 2))
 {
 
 	/*Set up the Renderable*/
@@ -18,7 +19,7 @@ Button::Button(std::string path, int width, int height, olc::vf2d pos) :
 void Button::Draw(float fElapsedTime)
 {
 	/*calculate the drawing position*/
-	olc::vf2d drawing_pos = { (this->CenterPosition.x - this->Width / 2), (this->CenterPosition.y - this->Height / 2) };
+	//olc::vf2d drawing_pos = { (this->CenterPosition.x - this->Width / 2), (this->CenterPosition.y - this->Height / 2) };
 	/*Set the Sprite that will be drawn, depending on the Button State*/
 	olc::vf2d src_pos = { (float)this->Width * this->State, 0 };
 	if (src_pos.x > ((float)this->Width * 2)) {

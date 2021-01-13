@@ -1,4 +1,5 @@
 #include "StaticGameTile.h"
+#include "Debug.h"
 
 
 
@@ -28,6 +29,10 @@ StaticGameTile& StaticGameTile::operator=(const StaticGameTile& other)
 	this->image.reset();
 	/*Create a new Renderable*/
 	this->image.get()->Load(path);
+	/*if debug is enabled, increase the objects copied count*/
+#ifdef DEBUG_GAME
+	debug_obj->nObjectCopies++;
+#endif
 	/*return Object*/
 	return *this;
 }

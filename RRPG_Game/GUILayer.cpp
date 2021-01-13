@@ -60,8 +60,8 @@ bool GUILayer::OnDisable()
 StateType GUILayer::HandleEvents()
 {
 	StateType return_state = StateType::NO_CHANGE;
-	/*Check if there are any Events that change the State of the Game*/
 
+	/*Check if there are any Events that change the State of the Game*/
 	std::list<std::shared_ptr<Event>>::iterator i = (*(this->InternalEvents)).begin();
 
 	while (i != (*(this->InternalEvents)).end()) {
@@ -69,7 +69,7 @@ StateType GUILayer::HandleEvents()
 		/*Check Events based on Event Type*/
 		switch ((*i)->GetEventType().GetEType()) {
 		case EventType::etype::CREATE_NEW_GAME:
-			return_state = StateType::NEW_GAME;
+			return_state = StateType::MAIN_GAME;
 			/*Event has been processed, remove it from the List*/
 			i = this->InternalEvents->erase(i);
 			break;

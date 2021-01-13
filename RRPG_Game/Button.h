@@ -41,4 +41,6 @@ protected:
     EventType::etype InvokedOnRelease;
     EventType::etype InvokedOnMouseOver;
     std::unique_ptr<olc::Renderable> image;
+private:
+    const olc::vf2d drawing_pos;
 };

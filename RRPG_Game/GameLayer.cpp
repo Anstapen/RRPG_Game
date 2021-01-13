@@ -5,8 +5,7 @@
 GameLayer::GameLayer(int layerid, std::list<std::shared_ptr<GameObject>> objects) :
 	Layer(layerid, PackingManager::PackingStyle::MAIN_GAME, objects),
 	maps(),
-	currentMap(std::make_unique<Map>()),
-	Player()
+	currentMap(std::make_unique<Map>())
 {
 }
 
@@ -20,14 +19,14 @@ StateType GameLayer::Update(float fElapsedTime, std::shared_ptr<std::list<std::s
 {
 	StateType return_state = StateType::NO_CHANGE;
 	/*Update Player Position*/
-	
+	this->Player->Update(fElapsedTime, eventlist);
 	/* TODO: Add given external Events to internal Eventlist*/
 	std::shared_ptr<Event> ret_event;
 	for (auto o : this->AllObjects) {
 		ret_event = o->Update(fElapsedTime, this->InternalEvents);
 	}
 	/*Update Map*/
-	this->currentMap->Update(fElapsedTime, this->Player->GetPosition());
+	this->currentMap->Update(fElapsedTime, this->Player->GetWSPos());
 	/*Check, if the Event returned any external Events that have to be add to the External Event List*/
 	if (ret_event != nullptr) {
 		eventlist->push_back(ret_event);

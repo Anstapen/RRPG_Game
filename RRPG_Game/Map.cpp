@@ -7,7 +7,8 @@ Map::Map() :
 	width(0),
 	height(0),
 	map_ids(),
-	CameraPostion(((pge->ScreenWidth() / 2) / 24) - 12, ((pge->ScreenHeight() / 2) / 24) - 12 )
+	CameraPostion(((pge->ScreenWidth() / 2) / 24) - 20, ((pge->ScreenHeight() / 2) / 24) - 12),
+	base_map(std::make_unique<olc::Renderable>())
 {
 	
 }
@@ -17,7 +18,7 @@ bool Map::LoadMap(MAP_ID in_id)
 	/*Load map depending on map id*/
 	switch (in_id) {
 	default:
-		LoadMap("./maps/Base_Map/Base_Map.csv", "./maps/Base_Map/Base_Map_Tileset.csv", 100, 100);
+		LoadMap("./maps/Base_Map/Base_Map.csv", "./maps/Base_Map/Base_Map_Tileset.csv", "./maps/Base_Map/Base_Map.png", 100, 100);
 		break;
 	}
 	return false;
@@ -41,7 +42,7 @@ void Map::Update(float fElapsedTime, olc::vf2d player_pos)
 		this->CameraPostion.y = 12;
 	}
 	for (int i = 0; i < this->tiles.size(); i++) {
-		/*TODO: used a real eventlist here*/
+		/*TODO: use a real eventlist here*/
 		this->tiles[i]->Update(fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>>());
 	}
 }
@@ -49,7 +50,7 @@ void Map::Update(float fElapsedTime, olc::vf2d player_pos)
 void Map::Draw(float fElapsedTime)
 {
 	/*Calculate the fist tile to be drawn*/
-	olc::vi2d tile = { (int)(this->CameraPostion.x - 20.0f), (int)(this->CameraPostion.y - 12.0f) };
+	/*olc::vi2d tile = { (int)(this->CameraPostion.x - 20.0f), (int)(this->CameraPostion.y - 12.0f) };
 	float x_offset = this->CameraPostion.x - (float)ceil(this->CameraPostion.x);
 	float y_offset = this->CameraPostion.y - (float)ceil(this->CameraPostion.y);
 	for (int y = 0; y < (int)this->CameraPostion.y+12; y++) {
@@ -57,10 +58,16 @@ void Map::Draw(float fElapsedTime)
 			this->tiles[this->map_ids[x][y]].get()->SetPosition({(float)x - x_offset, (float)y - y_offset});
 			this->tiles[this->map_ids[x][y]].get()->Draw(fElapsedTime);
 		}
-	}
+	}*/
+	/*For now, just try to draw the base map*/
+
+	/*Calculate the absolute Camera Position*/
+	olc::vf2d AbsoluteCameraPos = { (this->CameraPostion.x - 20.0f) * 24, (this->CameraPostion.y - 12) * 24 };
+	/*Draw a partial map decal*/
+	pge->DrawPartialDecal(olc::vf2d(0.0f, 0.0f), this->base_map.get()->Decal(), AbsoluteCameraPos, olc::vf2d(pge->ScreenWidth(), pge->ScreenHeight()));
 }
 
-bool Map::LoadMap(std::string map_cfg, std::string tileset_cfg, unsigned int in_width, unsigned int in_height)
+bool Map::LoadMap(std::string map_cfg, std::string tileset_cfg, std::string in_base_map, unsigned int in_width, unsigned int in_height)
 {
 	this->height = in_height;
 	this->width = in_width;
@@ -82,6 +89,8 @@ bool Map::LoadMap(std::string map_cfg, std::string tileset_cfg, unsigned int in_
 		}
 		this->map_ids.push_back(GetVecFromLine(line, tileSet));
 	}
+	/*Create a Renderable for the Base Map PNG*/
+	this->base_map.get()->Load(in_base_map);
 	/*Print vector size for Testing purposes*/
 	std::cout << "Vector size: " << this->map_ids.size() << std::endl;
 	return false;

@@ -1,6 +1,7 @@
 #pragma once
 #include "Layer.h"
 #include "Map.h"
+#include "Player.h"
 /*This is were the magic happens...*/
 
 class GameLayer :
@@ -16,7 +17,7 @@ public:
 	virtual std::shared_ptr<LayerPM> GetLayerPM() override;
 
 
-	std::unique_ptr<AnimatedGameTile> Player;
+	std::unique_ptr<game::Player> Player;
 protected:
 	virtual bool OnEnable() override;
 	virtual bool OnDisable() override;
