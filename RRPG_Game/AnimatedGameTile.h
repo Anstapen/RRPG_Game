@@ -7,11 +7,11 @@ class AnimatedGameTile :
 {
 public:
 	AnimatedGameTile(
-		std::string path,
-		unsigned int noa,
-		float in_speed = 0.5f,
-		bool movable = false,
-		olc::vf2d pos = { 0.0f, 0.0f },
+		std::string path, // dont need
+		unsigned int noa, // dont need
+		float in_speed = 0.5f, // dont need
+		bool movable = false, // dont need
+		olc::vf2d pos = { 0.0f, 0.0f }, // dont need
 		bool collidable = true,
 		std::list<HitBox> CombHitBox = std::list<HitBox>()
 	);

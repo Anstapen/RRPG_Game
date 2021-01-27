@@ -30,4 +30,3 @@ protected:
 	std::string path;
 	std::unique_ptr<olc::Renderable> image;
 };
-

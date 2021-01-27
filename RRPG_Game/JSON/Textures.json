@@ -1,0 +1,30 @@
+{
+   "Textures":[
+      {
+         "Warrior":{
+            "path":"Blue_Char_Moving.png",
+            "size":[
+               24,
+               24
+            ],
+            "scale":1.0,
+            "states":[
+               {
+                  "name":"idle",
+                  "duration":0.5,
+                  "frames":[
+                     [
+                        0,
+                        0
+                     ],
+                     [
+                        24,
+                        0
+                     ]
+                  ]
+               }
+            ]
+         }
+      }
+   ]
+}

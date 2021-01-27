@@ -138,7 +138,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="ActorComponent.cpp" />
+    <ClCompile Include="ActorComponentGUID.cpp" />
+    <ClCompile Include="ActorFactory.cpp" />
     <ClCompile Include="AnimatedGameTile.cpp" />
+    <ClCompile Include="AppLayer.cpp" />
     <ClCompile Include="BGLayer.cpp" />
     <ClCompile Include="BGLayerPM.cpp" />
     <ClCompile Include="ButtonEvent.cpp" />
@@ -148,6 +153,7 @@
     <ClCompile Include="DebugState.cpp" />
     <ClCompile Include="Ellipse.cpp" />
     <ClCompile Include="Event.cpp" />
+    <ClCompile Include="EventBroker.cpp" />
     <ClCompile Include="EventType.cpp" />
     <ClCompile Include="GameLayer.cpp" />
     <ClCompile Include="GameLayerPM.cpp" />
@@ -160,6 +166,8 @@
     <ClCompile Include="GameTile.cpp" />
     <ClCompile Include="GUILayer.cpp" />
     <ClCompile Include="HitBox.cpp" />
+    <ClCompile Include="IPositionComponent.cpp" />
+    <ClCompile Include="ITextureComponent.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LayerPM.cpp" />
     <ClCompile Include="main.cpp" />
@@ -169,15 +177,24 @@
     <ClCompile Include="Overlay.cpp" />
     <ClCompile Include="PackingManager.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="ScreenPositionComponent.cpp" />
     <ClCompile Include="SimplePoly.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateType.cpp" />
     <ClCompile Include="StaticGameTile.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TileSet.cpp" />
     <ClCompile Include="TitleScreen.cpp" />
+    <ClCompile Include="WorldPositionComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actor.h" />
+    <ClInclude Include="ActorComponent.h" />
+    <ClInclude Include="ActorComponentGUID.h" />
+    <ClInclude Include="ActorFactory.h" />
+    <ClInclude Include="ActorTypes.h" />
     <ClInclude Include="AnimatedGameTile.h" />
+    <ClInclude Include="AppLayer.h" />
     <ClInclude Include="BGLayer.h" />
     <ClInclude Include="BGLayerPM.h" />
     <ClInclude Include="ButtonEvent.h" />
@@ -188,6 +205,7 @@
     <ClInclude Include="DebugState.h" />
     <ClInclude Include="Ellipse.h" />
     <ClInclude Include="Event.h" />
+    <ClInclude Include="EventBroker.h" />
     <ClInclude Include="EventType.h" />
     <ClInclude Include="GameLayer.h" />
     <ClInclude Include="GameLayerPM.h" />
@@ -200,6 +218,9 @@
     <ClInclude Include="GameTile.h" />
     <ClInclude Include="GUILayer.h" />
     <ClInclude Include="HitBox.h" />
+    <ClInclude Include="IPositionComponent.h" />
+    <ClInclude Include="ITextureComponent.h" />
+    <ClInclude Include="json.hpp" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="LayerPM.h" />
     <ClInclude Include="MainGame.h" />
@@ -210,12 +231,15 @@
     <ClInclude Include="Overlay.h" />
     <ClInclude Include="PackingManager.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="ScreenPositionComponent.h" />
     <ClInclude Include="SimplePoly.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateType.h" />
     <ClInclude Include="StaticGameTile.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="TileSet.h" />
     <ClInclude Include="TitleScreen.h" />
+    <ClInclude Include="WorldPositionComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="music\TITLESCREEN.wav" />

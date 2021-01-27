@@ -6,7 +6,7 @@ public:
 	/*This enum defines the Object that has invoked the event*/
 	enum class otype {
 		DEFAULT = 0,
-		BUTTON
+		BUTTON = 1
 	};
 	/*this enum describes what event it actually is*/
 	enum class etype {
@@ -27,6 +27,10 @@ public:
 	std::pair<otype, etype> GetCompleteType() const;
 	otype GetOType() const;
 	etype GetEType() const;
+	unsigned long GetID() const;
 protected:
 	std::pair<otype, etype> combType;
+	const unsigned long ID;
+private:
+	static unsigned long static_id;
 };

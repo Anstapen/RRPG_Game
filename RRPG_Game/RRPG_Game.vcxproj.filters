@@ -52,6 +52,21 @@
     <Filter Include="Quelldateien\DebugStuff">
       <UniqueIdentifier>{249173ba-5d00-448a-bd2f-ba5d17ce6491}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Quelldateien\New Stuff">
+      <UniqueIdentifier>{26f3d6e2-33b4-436d-aa15-a50723c2eb8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Components">
+      <UniqueIdentifier>{af693f22-07d2-405e-bd12-8977246f3f16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Actors">
+      <UniqueIdentifier>{c5099027-891f-4843-b3ac-f45b193609d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Components\IPositionComponent">
+      <UniqueIdentifier>{58193af4-b554-47ad-a035-c52b1c97c35f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Components\ITextureComponent">
+      <UniqueIdentifier>{f88f26ea-2608-461a-8e95-e980790f67c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -164,6 +179,39 @@
     </ClCompile>
     <ClCompile Include="Debug.cpp">
       <Filter>Quelldateien\DebugStuff</Filter>
+    </ClCompile>
+    <ClCompile Include="EventBroker.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>Quelldateien\New Stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorComponent.cpp">
+      <Filter>Quelldateien\New Stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorFactory.cpp">
+      <Filter>Quelldateien\New Stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorComponentGUID.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="IPositionComponent.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldPositionComponent.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenPositionComponent.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="ITextureComponent.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="AppLayer.cpp">
+      <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -283,6 +331,45 @@
     </ClInclude>
     <ClInclude Include="Debug.h">
       <Filter>Headerdateien\DebugStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="EventBroker.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>Headerdateien\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorFactory.h">
+      <Filter>Headerdateien\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorTypes.h">
+      <Filter>Headerdateien\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="json.hpp">
+      <Filter>Headerdateien\Externals</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorComponent.h">
+      <Filter>Headerdateien\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorComponentGUID.h">
+      <Filter>Headerdateien\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="IPositionComponent.h">
+      <Filter>Headerdateien\Components\IPositionComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenPositionComponent.h">
+      <Filter>Headerdateien\Components\IPositionComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldPositionComponent.h">
+      <Filter>Headerdateien\Components\IPositionComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="ITextureComponent.h">
+      <Filter>Headerdateien\Components\ITextureComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="AppLayer.h">
+      <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
