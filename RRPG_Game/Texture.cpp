@@ -3,6 +3,7 @@
 #include "olcPixelGameEngine.h"
 #include "json.hpp"
 #include <iostream>
+#include "Debug.h"
 
 using json = nlohmann::json;
 
@@ -26,7 +27,6 @@ Texture::Texture(const Texture& other) :
 	src(std::make_unique<olc::Renderable>()),
 	valid(false)
 {
-	std::cout << "Copy Constructor!..." << std::endl;
 	/*Set up the second texture*/
 	this->valid = this->loadTexture(name);
 	if (this->valid) {
@@ -53,97 +53,113 @@ void Texture::Draw(float fElapsedTime, olc::vf2d pos)
 
 bool Texture::loadTexture(std::string name)
 {
+	DEBUG_PRINT("--------LOADING TEXTURE----------");
 	bool ret_value = false;
 	olc::vi2d size;
 	float scale = 0.0f;
+	bool object_added = false;
 	std::vector<texture_state> states;
 	/*Load the texture from the json config file*/
 	std::string config_path = "./" + AppLayer::GetJsonPath() + "/" + AppLayer::GetTextureFileName();
 	std::string texture_path = "./" + AppLayer::GetTexturePath() + "/";
 
 	/*Debug Print*/
-	std::cout << "Created this path for the config file: " << config_path << std::endl;
-	std::cout << "Created this path for the textures: " << texture_path << std::endl;
+	DEBUG_PRINT("Created this path for the config file: " + config_path);
+	DEBUG_PRINT("Created this path for the textures: " + texture_path);
 
 	std::ifstream i(config_path);
 	json j;
 	i >> j;
 	/*Check for the textures array*/
 	if (j["Textures"].is_null() == true) {
-		std::cout << "Did not find the Textures[] array, leaving..." << std::endl;
+		DEBUG_PRINT("Did not find the Textures[] array, leaving...");
+		ret_value = false;
 		return ret_value;
 	}
 	
 	/*Found the textures array, search it for the name...*/
 	for (auto& e : j["Textures"]) {
-		if (!(e["Warrior"].is_null())) {
-			std::cout << "Found our object" << std::endl;
+		if (!(e[name].is_null())) {
+			DEBUG_PRINT("Found object: " + name);
 			/*Found our object*/
-			auto obj =  e["Warrior"];
+			auto obj =  e[name];
 
 
 			/*Add the path*/
 			ret_value = FillPath(obj, texture_path);
 			/*Check if that was successfull*/
 			if (!ret_value) {
-				std::cout << "did not find path of texture for " << name << ", exiting..." << std::endl;
+				DEBUG_PRINT("Did not find path of texture for " + name + ", exiting...");
 				return ret_value;
 			}
 			else {
-				std::cout << "Found texture path for " << name << ": " << texture_path << std::endl;
+				DEBUG_PRINT("Found texture path for " + name + ": " + texture_path);
 			}
 			
 
 			/*Add the size*/
 			ret_value = FillSize(obj, size);
 			if (!ret_value) {
-				std::cout << "Failed finding a correct texture size..." << std::endl;
+				DEBUG_PRINT("Failed finding a correct texture size...");
 				return ret_value;
 			}
 			else {
-				std::cout << "Found size of " << name << " texture: [" << size.x << ", " << size.y << "]" << std::endl;
+				DEBUG_PRINT("Found size of " + name + " texture: [" + std::to_string(size.x) + ", " + std::to_string(size.y) + "]");
 			}
 			
 			/*Add the scale*/
 			ret_value = FillScale(obj, scale);
 			if (!ret_value) {
-				std::cout << "did not find scale of texture for " << name << ", exiting..." << std::endl;
+				DEBUG_PRINT("Did not find scale of texture for " + name + ", exiting...");
 				return ret_value;
 			}
 			else {
-				std::cout << "Found scale for " << name << ": " << scale << std::endl;
+				DEBUG_PRINT("Found scale for " + name + ": " + std::to_string(scale));
 			}
 
 			/*Add the States*/
 			ret_value = FillStates(obj, states);
 			if (!ret_value) {
-				std::cout << "did not find texture states for " << name << ", exiting..." << std::endl;
+				DEBUG_PRINT("Did not find texture states for " + name + ", exiting...");
 				return ret_value;
 			}
 			else {
-				std::cout << "Found texture states for " << name << ": " << states.size() << std::endl;
+				DEBUG_PRINT("Found texture states for " + name + ": " + std::to_string(states.size()));
 			}
+			object_added = true;
 		}
 	}
-	std::cout << "Creating the Animated Sprite..." << texture_path << std::endl;
-	/*Filled the variables, creating the object*/
-	if (this->src.get() == nullptr)std::cout << "test" << std::endl;
-	this->src.get()->Load("./gfx/Blue_Char_Moving.png");
-	
-	this->image.get()->mode = olc::AnimatedSprite::SPRITE_MODE::SINGLE;
-	this->image.get()->spriteSheet = this->src.get();
-	this->image.get()->SetSpriteSize(size);
-	this->image.get()->type = olc::AnimatedSprite::SPRITE_TYPE::DECAL;
-	this->image.get()->SetSpriteScale(scale);
-	std::cout << "Animated Sprite created, adding states..." << std::endl;
-	/*Set up the States*/
-	for (auto &e : states) {
-		this->image.get()->AddState(e.name, e.duration, olc::AnimatedSprite::PLAY_MODE::LOOP, e.frames);
+	if (object_added) {
+		DEBUG_PRINT("Creating the Animated Sprite: " + texture_path);
+		/*Filled the variables, creating the object*/
+		olc::rcode ret_code = this->src.get()->Load(texture_path);
+		/*Check  if the Sprite loaded correctly*/
+		if (ret_code != olc::OK) {
+			DEBUG_PRINT("ERROR: Could not load the file: " + texture_path);
+			ret_value = false;
+			return ret_value;
+		}
+		this->image.get()->mode = olc::AnimatedSprite::SPRITE_MODE::SINGLE;
+		this->image.get()->spriteSheet = this->src.get();
+		this->image.get()->SetSpriteSize(size);
+		this->image.get()->type = olc::AnimatedSprite::SPRITE_TYPE::DECAL;
+		this->image.get()->SetSpriteScale(scale);
+		DEBUG_PRINT("Animated Sprite created, adding states...");
+		/*Set up the States*/
+		for (auto& e : states) {
+			this->image.get()->AddState(e.name, e.duration, olc::AnimatedSprite::PLAY_MODE::LOOP, e.frames);
+		}
+		/*For now, set the first state as default*/
+		this->image.get()->SetState(states[0].name);
+		ret_value = true;
 	}
-	/*For now, set the first state as default*/
-	this->image.get()->SetState(states[0].name);
-	ret_value = true;
+	else {
+		DEBUG_PRINT("Did not find the object " + name + " in the config file!");
+		ret_value = false;
+	}
+	
 
+	DEBUG_PRINT("--------FINISHED LOADING TEXTURE----------");
 	/*return the rat value*/
 	return ret_value;
 }

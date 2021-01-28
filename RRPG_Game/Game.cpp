@@ -3,7 +3,7 @@
 #include "MainGame.h"
 #include "DebugState.h"
 #include "Debug.h"
-#include "Texture.h"
+#include "MultiTexture.h"
 
 #pragma comment(lib, "User32.lib")
 
@@ -12,27 +12,16 @@ Game::Game()
 }
 
 /*Test vars*/
-Texture *test;
-Texture *test1;
-Texture *test2;
+MultiTexture* test;
 
 bool Game::OnUserCreate()
 {
-	/*Test of the new Texture Class*/
-	test = new Texture("Warrior");
-	if (test->isValid()) {
-		std::cout << "I just created a valid texture!" << std::endl;
-	}
-	else {
-		std::cout << "Created Texture is not valid!" << std::endl;
-	}
-	test1 = new Texture(*test);
-	if (test1->isValid()) {
-		std::cout << "I just created a valid texture!" << std::endl;
-	}
-	else {
-		std::cout << "Created Texture is not valid!" << std::endl;
-	}
+	/*Test of the new MultiTexture Class*/
+	test = new MultiTexture;
+	test->AddTexture("top_left");
+	test->AddTexture("top_right");
+	test->AddTexture("bottom_left");
+	test->AddTexture("bottom_right");
 
 
 	///*Fill the StateList manually, because there should not be that many States*/
@@ -60,7 +49,7 @@ bool Game::OnUserCreate()
 bool Game::OnUserUpdate(float fElapsedTime)
 {
 
-
+	this->Clear(olc::WHITE);
 	olc::vf2d mouse_pos = {(float)this->GetMouseX(), (float)this->GetMouseY()};
 	test->Draw(fElapsedTime, mouse_pos);
 	

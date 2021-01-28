@@ -174,11 +174,13 @@
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MAP_ID.cpp" />
+    <ClCompile Include="MultiTexture.cpp" />
     <ClCompile Include="Overlay.cpp" />
     <ClCompile Include="PackingManager.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ScreenPositionComponent.cpp" />
     <ClCompile Include="SimplePoly.cpp" />
+    <ClCompile Include="SingleTexture.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateType.cpp" />
     <ClCompile Include="StaticGameTile.cpp" />
@@ -226,6 +228,7 @@
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MAP_ID.h" />
+    <ClInclude Include="MultiTexture.h" />
     <ClInclude Include="olcPGEX_AnimatedSprite.h" />
     <ClInclude Include="olcPixelGameEngine.h" />
     <ClInclude Include="Overlay.h" />
@@ -233,6 +236,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="ScreenPositionComponent.h" />
     <ClInclude Include="SimplePoly.h" />
+    <ClInclude Include="SingleTexture.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateType.h" />
     <ClInclude Include="StaticGameTile.h" />

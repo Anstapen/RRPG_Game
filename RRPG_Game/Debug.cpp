@@ -10,3 +10,8 @@ void Debug::printObjectCopies()
 {
 	std::cout << "DEBUG Number of Object copies so far: " << this->nObjectCopies << std::endl;
 }
+
+void Debug::Print(std::string s)
+{
+	std::cout << "DEBUG: " << s << std::endl;
+}

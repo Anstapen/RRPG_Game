@@ -213,6 +213,12 @@
     <ClCompile Include="AppLayer.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="SingleTexture.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiTexture.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -369,6 +375,12 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="AppLayer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleTexture.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiTexture.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
