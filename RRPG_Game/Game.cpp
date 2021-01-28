@@ -18,10 +18,7 @@ bool Game::OnUserCreate()
 {
 	/*Test of the new MultiTexture Class*/
 	test = new MultiTexture;
-	test->AddTexture("top_left");
-	test->AddTexture("top_right");
-	test->AddTexture("bottom_left");
-	test->AddTexture("bottom_right");
+	test->AddTexture("char");
 
 
 	///*Fill the StateList manually, because there should not be that many States*/
@@ -51,6 +48,23 @@ bool Game::OnUserUpdate(float fElapsedTime)
 
 	this->Clear(olc::WHITE);
 	olc::vf2d mouse_pos = {(float)this->GetMouseX(), (float)this->GetMouseY()};
+
+	/*do it with simple checks for now*/
+	if (this->GetKey(olc::W).bHeld) {
+		test->SetState("char", "walking_north");
+	}
+	else if (this->GetKey(olc::A).bHeld) {
+		test->SetState("char", "walking_west");
+	}
+	else if (this->GetKey(olc::S).bHeld) {
+		test->SetState("char", "walking_south");
+	}
+	else if (this->GetKey(olc::D).bHeld) {
+		test->SetState("char", "walking_east");
+	}
+	else {
+		test->SetState("char", "idle");
+	}
 	test->Draw(fElapsedTime, mouse_pos);
 	
 //	/*Execute current State of the Game*/

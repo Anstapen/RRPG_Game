@@ -224,13 +224,13 @@ namespace olc
 			if ((mode == SPRITE_MODE::MULTI && multiFrames.find(newState) == multiFrames.end())
 				|| (mode == SPRITE_MODE::SINGLE && singleFrames.find(newState) == singleFrames.end())) {
 
-				std::cout << "Error: State " << newState << " does not exist." << std::endl;
+				//std::cout << "Error: State " << newState << " does not exist." << std::endl;
 				return;
 			}
 		} else if ((mode == SPRITE_MODE::MULTI && multiRenderables.find(newState) == multiRenderables.end())
 			|| (mode == SPRITE_MODE::SINGLE && singleFrames.find(newState) == singleFrames.end())) {
 
-			std::cout << "Error: State " << newState << " does not exist." << std::endl;
+			//std::cout << "Error: State " << newState << " does not exist." << std::endl;
 			return;
 		}
 

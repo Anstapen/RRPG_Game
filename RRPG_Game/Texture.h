@@ -21,6 +21,9 @@ public:
 	/*Custom copy constructors*/
 	Texture(const Texture&);
 	Texture& operator=(const Texture&) = delete;
+	/*Custom move*/
+	Texture(Texture&& other);
+	Texture& operator=(Texture&& other) = delete;
 
 	/*Inline Getters*/
 	bool isValid() { return this->valid; }

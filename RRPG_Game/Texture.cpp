@@ -34,17 +34,29 @@ Texture::Texture(const Texture& other) :
 	}
 }
 
+Texture::Texture(Texture&& other) :
+	valid(other.valid),
+	active(other.active),
+	name(other.name),
+	image(std::move(other.image)),
+	src(std::move(other.src))
+{
+}
+
 
 void Texture::SetState(std::string new_state)
 {
 	this->image.get()->SetState(new_state);
 }
 
-/*Draws the texture at the given position, if its active*/
+/*Draws the texture at the given center position, if its active*/
 void Texture::Draw(float fElapsedTime, olc::vf2d pos)
 {
 	if (this->active) {
-		this->image.get()->Draw(fElapsedTime, pos);
+		/*calculate the drawing position*/
+		olc::vi2d sprite_size = this->image->GetSpriteSize();
+		olc::vf2d draw_pos = {(pos.x - sprite_size.x / 2), (pos.y - sprite_size.y /2)};
+		this->image.get()->Draw(fElapsedTime, draw_pos);
 	}
 }
 
@@ -197,7 +209,7 @@ bool Texture::FillScale(const nlohmann::json& obj, float& scale)
 		return false;
 	}
 	else {
-		scale += obj["scale"];
+		scale = obj["scale"];
 		return true;
 	}
 	

@@ -1,7 +1,9 @@
 #pragma once
 #include "IPositionComponent.h"
 
-/*This class holds the position on the screen, in aboslute pixel values*/
+/*This class holds the position on the screen, in aboslute pixel values
+  The Position marks the CENTER of the Actor, drawing positions have to be calculated manually
+*/
 class ScreenPositionComponent :
     public IPositionComponent
 {
