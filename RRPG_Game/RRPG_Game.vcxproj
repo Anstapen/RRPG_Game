@@ -85,7 +85,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;DEBUG_GAME</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -97,7 +97,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;DEBUG_GAME</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -147,14 +147,14 @@
     <ClCompile Include="BGLayer.cpp" />
     <ClCompile Include="BGLayerPM.cpp" />
     <ClCompile Include="ButtonEvent.cpp" />
+    <ClCompile Include="ButtonListener.cpp" />
     <ClCompile Include="ButtonType.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="DebugLayerPM.cpp" />
     <ClCompile Include="DebugState.cpp" />
     <ClCompile Include="Ellipse.cpp" />
     <ClCompile Include="Event.cpp" />
-    <ClCompile Include="EventBroker.cpp" />
-    <ClCompile Include="EventType.cpp" />
+    <ClCompile Include="EventSystem.cpp" />
     <ClCompile Include="GameLayer.cpp" />
     <ClCompile Include="GameLayerPM.cpp" />
     <ClCompile Include="GUILayerPM.cpp" />
@@ -200,6 +200,7 @@
     <ClInclude Include="BGLayer.h" />
     <ClInclude Include="BGLayerPM.h" />
     <ClInclude Include="ButtonEvent.h" />
+    <ClInclude Include="ButtonListener.h" />
     <ClInclude Include="ButtonType.h" />
     <ClInclude Include="csv.h" />
     <ClInclude Include="Debug.h" />
@@ -207,8 +208,7 @@
     <ClInclude Include="DebugState.h" />
     <ClInclude Include="Ellipse.h" />
     <ClInclude Include="Event.h" />
-    <ClInclude Include="EventBroker.h" />
-    <ClInclude Include="EventType.h" />
+    <ClInclude Include="EventSystem.h" />
     <ClInclude Include="GameLayer.h" />
     <ClInclude Include="GameLayerPM.h" />
     <ClInclude Include="GUILayerPM.h" />

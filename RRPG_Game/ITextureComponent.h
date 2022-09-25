@@ -28,6 +28,8 @@ public:
     virtual void Disable(std::string name) = 0;
     /*Set state of texture*/
     virtual void SetState(std::string name, std::string new_state) = 0;
+    /*Set state of all textures*/
+    virtual void SetState(std::string new_state) = 0;
 protected:
     const static ActorComponentId unique_id;
 };

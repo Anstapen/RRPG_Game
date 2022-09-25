@@ -144,9 +144,6 @@
     <ClCompile Include="DebugState.cpp">
       <Filter>Quelldateien\States</Filter>
     </ClCompile>
-    <ClCompile Include="EventType.cpp">
-      <Filter>Quelldateien\Events</Filter>
-    </ClCompile>
     <ClCompile Include="Ellipse.cpp">
       <Filter>Quelldateien\Objects</Filter>
     </ClCompile>
@@ -179,9 +176,6 @@
     </ClCompile>
     <ClCompile Include="Debug.cpp">
       <Filter>Quelldateien\DebugStuff</Filter>
-    </ClCompile>
-    <ClCompile Include="EventBroker.cpp">
-      <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Actor.cpp">
       <Filter>Quelldateien\New Stuff</Filter>
@@ -217,6 +211,12 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="MultiTexture.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="EventSystem.cpp">
+      <Filter>Quelldateien\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonListener.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -299,9 +299,6 @@
     <ClInclude Include="DebugState.h">
       <Filter>Headerdateien\States</Filter>
     </ClInclude>
-    <ClInclude Include="EventType.h">
-      <Filter>Headerdateien\Events</Filter>
-    </ClInclude>
     <ClInclude Include="Ellipse.h">
       <Filter>Headerdateien\Objects</Filter>
     </ClInclude>
@@ -337,9 +334,6 @@
     </ClInclude>
     <ClInclude Include="Debug.h">
       <Filter>Headerdateien\DebugStuff</Filter>
-    </ClInclude>
-    <ClInclude Include="EventBroker.h">
-      <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Actor.h">
       <Filter>Headerdateien\Actors</Filter>
@@ -381,6 +375,12 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="MultiTexture.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSystem.h">
+      <Filter>Headerdateien\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonListener.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,16 +1,14 @@
 #include "Event.h"
 
-EventType Event::GetEventType() const
-{
-	return this->type;
-}
-
-Event::Event(EventType in_type, EventPriority in_prio) :
-	type(in_type),
-	prio(in_prio)
+BaseEvent::BaseEvent(const float fTime) : fElapsedTime(fTime)
 {
 }
 
-Event::~Event()
+BaseEvent::~BaseEvent()
 {
+}
+
+float BaseEvent::GetElapsedTime() const
+{
+	return this->fElapsedTime;
 }

@@ -22,6 +22,9 @@ public:
     virtual void Disable(std::string name) override;
     /*Set state of texture*/
     virtual void SetState(std::string name, std::string new_state) override;
+    /*Set state of all textures*/
+    virtual void SetState(std::string new_state) override;
 protected:
     std::unique_ptr<TextureMap> texture_map;
+    std::vector<std::string> prio_list;
 };

@@ -28,12 +28,8 @@ public:
     virtual std::shared_ptr<Event> Update(float fElapsedTime, std::shared_ptr<std::list<std::shared_ptr<Event>>> eventlist) override;
     ButtonState GetState() const;
 
-    /*Event Setup Routines*/
-    void setReleaseEvent(EventType::etype in_type);
-    void setMOEvent(EventType::etype in_type);
 
-protected:
-    EventType GetEventType() const;
+
 protected:
     int Width;
     int Height;

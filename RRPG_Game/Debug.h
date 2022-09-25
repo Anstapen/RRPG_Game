@@ -1,10 +1,10 @@
 #pragma once
 #include <string>
 #include <iostream>
-/*This is the main define to enable the debug stuff of the game.*/
-#ifndef DEBUG_GAME
-#define DEBUG_GAME
-#endif // !DEBUG_GAME
+///*This is the main define to enable the debug stuff of the game.*/
+//#ifndef DEBUG_GAME
+//#define DEBUG_GAME
+//#endif // !DEBUG_GAME
 
 /*DEBUG print on standart out*/
 #ifdef DEBUG_GAME

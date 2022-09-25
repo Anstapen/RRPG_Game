@@ -61,31 +61,6 @@ StateType GUILayer::HandleEvents()
 {
 	StateType return_state = StateType::NO_CHANGE;
 
-	/*Check if there are any Events that change the State of the Game*/
-	std::list<std::shared_ptr<Event>>::iterator i = (*(this->InternalEvents)).begin();
-
-	while (i != (*(this->InternalEvents)).end()) {
-		
-		/*Check Events based on Event Type*/
-		switch ((*i)->GetEventType().GetEType()) {
-		case EventType::etype::CREATE_NEW_GAME:
-			return_state = StateType::MAIN_GAME;
-			/*Event has been processed, remove it from the List*/
-			i = this->InternalEvents->erase(i);
-			break;
-		case EventType::etype::SWITCH_TO_DEBUGSCREEN:
-			return_state = StateType::DEBUG;
-			i = this->InternalEvents->erase(i);
-			break;
-		case EventType::etype::SWITCH_TO_TITLESCREEN:
-			return_state = StateType::TITLESCREEN;
-			i = this->InternalEvents->erase(i);
-			break;
-		default:
-			i++;
-			break;
-		}
-	}
 
 	return return_state;
 }

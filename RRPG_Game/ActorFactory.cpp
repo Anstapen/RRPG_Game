@@ -1,6 +1,7 @@
 #include "ActorFactory.h"
 #include "WorldPositionComponent.h"
 #include "ScreenPositionComponent.h"
+#include "MultiTexture.h"
 
 StrongActorComponentPtr ActorFactory::CreateComponent(void)
 {
@@ -18,5 +19,6 @@ bool ActorFactory::Init(void)
     /*Populate the ComponentCreators map*/
     this->ComponentCreators["WorldPosition"] = WorldPositionComponent::CreateWorldPosition;
     this->ComponentCreators["ScreenPosition"] = ScreenPositionComponent::CreateScreenPosition;
+    this->ComponentCreators["MultiTexture"] = MultiTexture::CreateMultiTexture;
     return false;
 }

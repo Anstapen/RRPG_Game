@@ -57,14 +57,6 @@ std::shared_ptr<Event> Button::Update(float fElapsedTime, std::shared_ptr<std::l
 		this->State = Button::ButtonState::BUTTON_RELEASED;
 	}
 
-	/*Create Events if the criteria matches*/
-	if (this->State == Button::ButtonState::BUTTON_MOUSEOVER) {
-		eventlist->push_back(std::make_shared<ButtonEvent>(this->InvokedOnMouseOver));
-	}
-	if (this->State == Button::ButtonState::BUTTON_RELEASED) {
-		eventlist->push_back(std::make_shared<ButtonEvent>(this->InvokedOnRelease));
-	}
-
 	/*For Now, do not return any external Events*/
 	return nullptr;
 }
@@ -72,19 +64,4 @@ std::shared_ptr<Event> Button::Update(float fElapsedTime, std::shared_ptr<std::l
 Button::ButtonState Button::GetState() const
 {
 	return this->State;
-}
-
-void Button::setReleaseEvent(EventType::etype in_type)
-{
-	this->InvokedOnRelease = in_type;
-}
-
-void Button::setMOEvent(EventType::etype in_type)
-{
-	this->InvokedOnMouseOver = in_type;
-}
-
-EventType Button::GetEventType() const
-{
-	return EventType();
 }

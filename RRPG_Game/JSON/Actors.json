@@ -1,5 +1,15 @@
 {
-
-
-
+	"Actors":{
+	
+		"Warrior":{
+		},
+		"Mage":{
+		},
+		"Archer":{
+		},
+		"New_Game_Button":{
+		},
+		"Exit_Button":{
+		}
+	}
 }

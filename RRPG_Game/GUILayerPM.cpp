@@ -23,12 +23,10 @@ bool GUILayerPM::PackLayer(std::shared_ptr<Layer> layer)
 		/*Add TitleScreen Buttons*/
 		/*Add the "New Run" Button*/
 		std::shared_ptr<Button> start_button = std::make_shared<Button>("./gfx/New_Run_Button.png", 50, 20, olc::vf2d(pge->ScreenWidth() / 2, ((pge->ScreenHeight() * 2) / 3)));
-		start_button->setReleaseEvent(EventType::etype::CREATE_NEW_GAME);
 		casted_layer->AddObject(start_button);
 
 		/* Add the "Debug" Button*/
 		std::shared_ptr<Button> debug_button = std::make_shared<Button>("./gfx/Debug_Button.png", 50, 20, olc::vf2d(pge->ScreenWidth() / 2, ((pge->ScreenHeight() * 2) / 3) - 50));
-		debug_button->setReleaseEvent(EventType::etype::SWITCH_TO_DEBUGSCREEN);
 		casted_layer->AddObject(debug_button);
 
 		/*Adding the Main Cursor*/
@@ -40,7 +38,6 @@ bool GUILayerPM::PackLayer(std::shared_ptr<Layer> layer)
 	if (this->sPackingStyle == PackingManager::PackingStyle::DEBUG_SCREEN) {
 		/*Add the ESC Button*/
 		std::shared_ptr<Button> esc_button = std::make_shared<Button>("./gfx/Esc_Button.png", 15, 15, olc::vf2d(20.0f, 20.0f));
-		esc_button->setReleaseEvent(EventType::etype::SWITCH_TO_TITLESCREEN);
 		casted_layer->AddObject(esc_button);
 		/* Add a "Test" Button*/
 		std::shared_ptr<Button> test_button1 = std::make_shared<Button>("./gfx/Blue_Test_Button.png", 50, 20, olc::vf2d(300.0f, 120.0f));
@@ -54,7 +51,6 @@ bool GUILayerPM::PackLayer(std::shared_ptr<Layer> layer)
 	if (this->sPackingStyle == PackingManager::PackingStyle::MAIN_GAME) {
 		/*Adding the Esc Button*/
 		std::shared_ptr<Button> esc_button = std::make_shared<Button>("./gfx/Esc_Button.png", 15, 15, olc::vf2d(20.0f, 20.0f));
-		esc_button->setReleaseEvent(EventType::etype::SWITCH_TO_TITLESCREEN);
 		casted_layer->AddObject(esc_button);
 		/*Adding the Overlay*/
 		std::shared_ptr<Overlay> maingame_overlay = std::make_shared<Overlay>("./gfx/MainGame_GUI_Overlay.png");
